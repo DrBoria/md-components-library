@@ -1,4 +1,4 @@
-# React App Template (with styled-components)
+# React App Components Library (with styled-components)
 
 > App based on typescript, react and styled-components (https://styled-components.com/docs/basics)
 
