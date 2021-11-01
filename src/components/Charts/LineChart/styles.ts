@@ -11,18 +11,18 @@ export const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background: ${colors.background.section};
+  background: ${colors.section};
 
   .recharts-surface {
     padding: 2rem 0rem 1rem 1rem;
   }
 
   .recharts-cartesian-axis-line {
-    stroke: ${colors.decoration.border}};
+    stroke: ${colors.sectionContent}};
   }
 
   .recharts-text {
-    color: ${colors.typography.title};
+    color: ${colors.sectionContent};
     font-size: 1.0625rem;
     line-height: 1.5rem;
   }
@@ -54,7 +54,7 @@ export const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
       r: 0.45rem;
       fill-opacity: 1;
       stroke-width: 2;
-      stroke: ${colors.background.section};
+      stroke: ${colors.section};
     }
   }
 

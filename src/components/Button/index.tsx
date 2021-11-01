@@ -24,8 +24,8 @@ const Button = styled.button<TButton>`
     ${
       type === 'navigation'
         ? `
-          border: ${border.size} solid ${colors.decoration.border};
-          color: ${colors.typography.navigationText};
+          border: ${border.size} solid ${colors.sectionContent};
+          color: ${colors.sectionContent};
           text-transform: uppercase;
         `
         : ''
@@ -35,7 +35,7 @@ const Button = styled.button<TButton>`
       type === 'menu'
         ? `
           border: none;
-          color: ${colors.typography.navigationText};
+          color: ${colors.sectionContent};
           text-transform: uppercase;
         `
         : ''

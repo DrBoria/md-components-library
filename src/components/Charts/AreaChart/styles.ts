@@ -10,18 +10,18 @@ const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background-color: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+  background-color: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
 
   .recharts-surface {
     padding: 2rem 0rem 1rem 1rem;
   }
 
   .recharts-cartesian-axis-line {
-    stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.decoration.border};
+    stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
   }
 
   .recharts-text {
-    color: ${({ theme: { colors } }: { theme: Theme }) => colors.typography.navigationText};
+    color: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
     font-size: 1.0625rem;
     line-height: 1.5rem;
   }
@@ -53,7 +53,7 @@ const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
       r: 0.45rem;
       fill-opacity: 1;
       stroke-width: 2;
-      stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+      stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
     }
   }
 
@@ -67,20 +67,20 @@ const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
         return css`
           ${({ theme: { colors } }: { theme: Theme }) => `
           .recharts-reference-line line {
-            stroke: ${colors.typography.navigationText};
+            stroke: ${colors.sectionContent};
           }
           circle {
             :first-child,
             :last-child {
-              fill:  ${colors.typography.navigationText};
+              fill:  ${colors.sectionContent};
             }
           }
           .recharts-layer path {
             :last-child {
-              stroke:  ${colors.typography.navigationText};
+              stroke:  ${colors.sectionContent};
             }
             :first-child {
-              fill:  ${colors.typography.navigationText};
+              fill:  ${colors.sectionContent};
             }
           }
           `}
@@ -90,20 +90,20 @@ const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
           ${({ theme: { colors } }: { theme: Theme }) => `
 
           .recharts-reference-line line {
-            stroke: ${colors.typography.navigationText};
+            stroke: ${colors.sectionContent};
           }
           circle {
             :first-child,
             :last-child {
-              fill: ${colors.typography.navigationText};
+              fill: ${colors.sectionContent};
             }
           }
           .recharts-layer path {
             :last-child {
-              stroke: ${colors.typography.navigationText};
+              stroke: ${colors.sectionContent};
             }
             :first-child {
-              fill: ${colors.typography.navigationText};
+              fill: ${colors.sectionContent};
             }
           }
           `}
@@ -114,20 +114,20 @@ const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
           ${({ theme: { colors } }: { theme: Theme }) => `
 
         .recharts-reference-line line {
-          stroke: ${colors.decoration.highliter};
+          stroke: ${colors.highlighted};
         }
         circle {
           :first-child,
           :last-child {
-            fill: ${colors.decoration.highliter};
+            fill: ${colors.highlighted};
           }
         }
         .recharts-layer path {
           :last-child {
-            stroke: ${colors.decoration.highliter};
+            stroke: ${colors.highlighted};
           }
           :first-child {
-            fill: ${colors.decoration.highliter};
+            fill: ${colors.highlighted};
           }
         }
         }

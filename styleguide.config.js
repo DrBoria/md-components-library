@@ -50,7 +50,7 @@ module.exports = {
   sections: [
     {
       name: 'Components',
-      components: 'src/components/**/*.tsx',
+      components: 'src/components/*/*.tsx',
     },
     {
       name: 'Sections',

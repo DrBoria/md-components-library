@@ -13,10 +13,9 @@ export const HeaderSection = styled.div`
     width: 100%;
     height: ${elements.header.height};
 
-    background-color: ${colors.background.section};
+    background: ${colors.section};
 
     padding: calc(${offsets.section} / 2) ${offsets.section};
-
 
     @media (min-width: ${screens.desktop.width}px) {
       padding: calc(${offsets.section} / 2) ${offsets.container};

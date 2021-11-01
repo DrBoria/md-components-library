@@ -13,7 +13,7 @@ export const NameContainer = styled.div`
 `;
 
 export const ColoredDot = styled.div`
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
   border-radius: 50%;
   width: 0.75rem;
   height: 0.75rem;
@@ -25,18 +25,18 @@ export const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
 
   .recharts-surface {
     padding: 2rem 0rem 1rem 1rem;
   }
 
   .recharts-cartesian-axis-line {
-    stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.decoration.border};
+    stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
   }
 
   .recharts-text {
-    color: ${({ theme: { colors } }: { theme: Theme }) => colors.typography.title};
+    color: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
     font-size: 1.0625rem;
     line-height: 1.5rem;
   }
@@ -68,7 +68,7 @@ export const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
       r: 0.45rem;
       fill-opacity: 1;
       stroke-width: 2;
-      stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+      stroke: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
     }
   }
 

@@ -21,7 +21,7 @@ export const BasicSection = styled.div<ISectionProps>`
   ${({ noHeightLimit, theme: { screens, elements, colors, offsets } }: ISectionProps) => `
     padding: ${offsets.section};
 
-    background-color: ${colors.background.section};
+    background-color: ${colors.section};
 
     max-height: calc(${screens.desktop.height} - ${elements.header.height});
     height: calc(${screens.mobile.height}px - ${elements.header.height});

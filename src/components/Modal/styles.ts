@@ -16,7 +16,7 @@ export const ModalContent = styled.div`
   height: auto;
   left: calc(50% - 26.75rem / 2);
   top: calc(50% - 14.625rem / 2);
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
   box-shadow: 0rem 0.5rem 1rem rgba(53, 53, 53, 0.1), 0rem 0.5rem 2rem rgba(53, 53, 53, 0.1);
   border-radius: 1.5rem;
   padding: 2.5rem 2rem;
@@ -28,7 +28,7 @@ export const ModalContent = styled.div`
 
 // TODO: TFR-45:Button make unique name or do not export
 export const Button = styled.button`
-  color: ${({ theme: { colors } }: { theme: Theme }) => colors.typography.title};
+  color: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
   width: 1.5rem;
   height: 1.5rem;
   margin: 0;
@@ -41,7 +41,7 @@ export const Button = styled.button`
 
 // TODO: TFR-44 move to icons group
 export const CloseIcon = styled(FiX)`
-  color: ${({ theme: { colors } }: { theme: Theme }) => colors.typography.title};
+  color: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
   width: 1.5rem;
   height: 1.5rem;
 `;

@@ -9,7 +9,7 @@ export const NameContainer = styled.div`
 `;
 
 export const ColoredDot = styled.div`
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.background.section};
+  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
   border-radius: 50%;
   width: 0.75rem;
   height: 0.75rem;

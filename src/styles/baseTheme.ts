@@ -41,6 +41,9 @@ const base = {
     header: {
       height: 'var(--height-header)',
     },
+    form: {
+      height: '50px',
+    },
   },
 
   border: {
