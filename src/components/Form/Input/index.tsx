@@ -13,15 +13,15 @@ type IInputProps = {
 
 const Input = styled.input<IInputProps>`
   ${({ theme: { colors, border, elements, offsets } }: IInputProps) => `
-  ${basicFont};
+    ${basicFont};
 
-  display: block;
-  height: ${elements.form.height};
-  padding: ${offsets.elementContent};
-  border: none;
-  background: ${colors.overlay};
-  border-radius: ${border.radius};
-  color: ${colors.sectionContent};
+    display: block;
+    height: ${elements.form.height};
+    padding: ${offsets.elementContent};
+    border: none;
+    background: ${colors.overlay};
+    border-radius: ${border.radius};
+    color: ${colors.sectionContent};
   `}
 
   ${withBasicElementOffsets}
