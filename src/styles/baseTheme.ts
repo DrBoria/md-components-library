@@ -44,6 +44,11 @@ const base = {
     form: {
       height: '50px',
     },
+    icons: {
+      height: '20px',
+      width: '20px',
+      radius: '10px',
+    },
   },
 
   border: {

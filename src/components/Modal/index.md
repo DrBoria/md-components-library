@@ -5,7 +5,7 @@ import Modal from 'components/Modal';
 
 const [isOpen, setIsOpen] = React.useState(false);
 
-<>
+<div style={{ height: '600px', width: '600px' }}>
   <button onClick={() => setIsOpen(!isOpen)}>Open Modal</button>
   <Modal open={isOpen} handleClose={() => setIsOpen(!isOpen)}>
     <div>
@@ -13,5 +13,5 @@ const [isOpen, setIsOpen] = React.useState(false);
       <span>Child context description</span>
     </div>
   </Modal>
-</>;
+</div>;
 ```

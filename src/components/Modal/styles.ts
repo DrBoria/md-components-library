@@ -1,47 +1,58 @@
 import styled from 'styled-components';
-import { Backdrop as DefaultBackdrop } from '@material-ui/core';
 import { FiX } from 'react-icons/fi';
 import { Theme } from 'styles/baseTheme';
 
-// TODO: TFR-46 remove imports in styled.ts if you do not add styles to component
-export const Backdrop = styled(DefaultBackdrop)``;
+type TOverlayProps = {
+  open: boolean;
+};
 
-// TODO: TFR-49 look similar to other content in modals. Could be easier to make helper for modals
+export const Overlay = styled.div<TOverlayProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: #00000080;
+
+  display: ${({ open }) => (open ? 'block' : 'none')};
+`;
+
 export const ModalContent = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 26.75rem;
-  height: auto;
-  left: calc(50% - 26.75rem / 2);
-  top: calc(50% - 14.625rem / 2);
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
-  box-shadow: 0rem 0.5rem 1rem rgba(53, 53, 53, 0.1), 0rem 0.5rem 2rem rgba(53, 53, 53, 0.1);
-  border-radius: 1.5rem;
-  padding: 2.5rem 2rem;
+  ${({ theme: { colors, offsets, screens, border, zIndex } }: { theme: Theme }) => `
+    position: absolute;
+    margin: 0 auto;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: ${zIndex.alert};
+  
+    height: auto;
+    width: calc(${screens.mobile.width} - ${offsets.section});
+    padding: ${offsets.section};
 
-  :focus {
-    outline: none;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: ${colors.section};
+    border-radius: ${border.radius};
+    border: ${border.size} solid ${colors.sectionContent};
+
+    :focus {
+      outline: none;
+    }
+  `};
 `;
 
-// TODO: TFR-45:Button make unique name or do not export
-export const Button = styled.button`
-  color: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-`;
-
-// TODO: TFR-44 move to icons group
 export const CloseIcon = styled(FiX)`
-  color: ${({ theme: { colors } }: { theme: Theme }) => colors.sectionContent};
-  width: 1.5rem;
-  height: 1.5rem;
+  ${({ theme: { colors, elements } }: { theme: Theme }) => `
+    cursor: pointer;
+    
+    color: ${colors.sectionContent};
+    width: ${elements.icons.width};
+    height: ${elements.icons.height};
+  `};
 `;
