@@ -4,8 +4,8 @@
 
 ## INSTALLATION and START
 
-    git clone https://github.com/DrBoria/cra-styled.git
-    cd ./cra-styled
+    git clone https://github.com/DrBoria/cra-components-library.git
+    cd ./cra-components-library
     yarn
     yarn start
 
