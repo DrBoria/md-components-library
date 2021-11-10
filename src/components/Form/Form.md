@@ -1,10 +1,13 @@
 ### Containers:
 
 ```jsx
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { dark } from 'styles/themes';
-import { Form, Submit, FormLabel, Radio, TextCheckbox, Select, Input } from 'components/Form';
+import { Form, Submit, FormLabel, Radio, TextCheckbox, Select, Input, SearchInput } from 'components/Form';
 import { SubTitle } from 'components/Typography';
+
+const [value, setValue] = useState();
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -45,11 +48,11 @@ const handleSubmit = (e) => {
   <div>
     <FormLabel htmlFor="Input1">Input1</FormLabel>
     <Input id="Input1" name="Input1" offsetBottom />
-  
+
     <FormLabel htmlFor="Input2">Input2</FormLabel>
     <Input id="Input2" name="Input2" offsetBottom />
   </div>
-  
+
   <SubTitle>Select Section</SubTitle>
   <div>
     <Select
@@ -62,5 +65,7 @@ const handleSubmit = (e) => {
     />
   </div>
   <Submit value="Next Step" />
+
+  <SearchInput value={value} onChangeValue={setValue} />
 </Form>;
 ```
