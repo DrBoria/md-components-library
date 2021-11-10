@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 
-import { IActivityStatus } from '../types';
-
 import { StyledTextCell } from './styles';
+
+enum IActivityStatus {
+  Active = 'Active',
+  InActive = 'InActive',
+}
 
 type IStatusCellProps = {
   status: IActivityStatus;

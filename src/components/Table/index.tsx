@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-import Loader from 'components/Loaders/TableLoader';
 import { SubTitle } from 'components/Typography';
 import Pagination from 'components/Pagination';
 import { Select, TOption } from 'components/Form';
@@ -19,7 +18,6 @@ type ITableContainerProps = {
     current: number;
     changeElementsPerPage: (elementsPerPage: number) => void;
   };
-  isLoading?: boolean;
   headerCols?: {
     text: string;
     align?: string;
@@ -27,17 +25,9 @@ type ITableContainerProps = {
     isSortable?: boolean;
   }[];
   colsTemplate: string;
-  children: any;
 };
 
-const TableContainer: FC<ITableContainerProps> = ({
-  children,
-  headerCols,
-  colsTemplate,
-  isLoading,
-  pagination,
-  rowsPerPage,
-}) => {
+const TableContainer: FC<ITableContainerProps> = ({ children, headerCols, colsTemplate, pagination, rowsPerPage }) => {
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     rowsPerPage?.changeElementsPerPage(parseInt(event.target.value, 10));
   };
@@ -47,53 +37,40 @@ const TableContainer: FC<ITableContainerProps> = ({
 
   return (
     <div>
-      {isLoading ? (
-        <>
-          <Loader opacity={1} />
-          <Loader opacity={0.8} />
-          <Loader opacity={0.7} />
-          <Loader opacity={0.5} />
-          <Loader opacity={0.3} />
-          <Loader opacity={0.1} />
-        </>
-      ) : (
-        <>
-          <Grid colsTemplate={colsTemplate}>
-            {/* Table Head */}
-            {headerCols?.map(({ text, sort = () => {}, isSortable, align }) => (
-              <StyledHeaderCell key={text} onClick={sort} align={align}>
-                <SubTitle>{text}</SubTitle>
-                {isSortable && '⟠'}
-              </StyledHeaderCell>
-            ))}
+      <Grid colsTemplate={colsTemplate}>
+        {/* Table Head */}
+        {headerCols?.map(({ text, sort = () => {}, isSortable, align }) => (
+          <StyledHeaderCell key={text} onClick={sort} align={align}>
+            <SubTitle>{text}</SubTitle>
+            {isSortable && '⟠'}
+          </StyledHeaderCell>
+        ))}
 
-            {/* Table Content (table cells will be here) */}
-            {children}
-          </Grid>
+        {/* Table Content (table cells will be here) */}
+        {children}
+      </Grid>
 
-          <PaginationContainer>
-            {/* Pagination with arrows */}
-            {pagination && (
-              <Pagination
-                pagesCount={pagination.totalPages}
-                currentPage={pagination.current}
-                onChangePage={handleChangePage}
-              />
-            )}
+      <PaginationContainer>
+        {/* Pagination with arrows */}
+        {pagination && (
+          <Pagination
+            pagesCount={pagination.totalPages}
+            currentPage={pagination.current}
+            onChangePage={handleChangePage}
+          />
+        )}
 
-            {/* Dropdawn for selction rows per page */}
-            {rowsPerPage && (
-              <Select
-                name="rowsPerPage"
-                id="rowsPerPage"
-                value={rowsPerPage.options[0]}
-                options={rowsPerPage.options}
-                onChange={handleChangeRowsPerPage}
-              />
-            )}
-          </PaginationContainer>
-        </>
-      )}
+        {/* Dropdawn for selction rows per page */}
+        {rowsPerPage && (
+          <Select
+            name="rowsPerPage"
+            id="rowsPerPage"
+            value={rowsPerPage.options[0]}
+            options={rowsPerPage.options}
+            onChange={handleChangeRowsPerPage}
+          />
+        )}
+      </PaginationContainer>
     </div>
   );
 };

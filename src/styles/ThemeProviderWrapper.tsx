@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import 'react-placeholder/lib/reactPlaceholder.css';
 
 import themes, { Theme } from './baseTheme';
 
