@@ -45,9 +45,11 @@ const handleSubmit = (e) => {
   <div>
     <FormLabel htmlFor="Input1">Input1</FormLabel>
     <Input id="Input1" name="Input1" offsetBottom />
+  
     <FormLabel htmlFor="Input2">Input2</FormLabel>
     <Input id="Input2" name="Input2" offsetBottom />
   </div>
+  
   <SubTitle>Select Section</SubTitle>
   <div>
     <Select

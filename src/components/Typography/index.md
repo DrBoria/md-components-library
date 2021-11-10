@@ -16,8 +16,6 @@ import { PageTitle, Highlighted, SubTitle, SectionTitle, PlainText, Label } from
     <br />
     <SectionTitle>Section Title</SectionTitle>
     <br />
-    <SubTitle>Sub Title </SubTitle>
-    <br />
     <SubTitle>
       Sub Title <Highlighted> Sub Title Highlighted </Highlighted>
     </SubTitle>
@@ -35,8 +33,6 @@ import { PageTitle, Highlighted, SubTitle, SectionTitle, PlainText, Label } from
       </PageTitle>
       <br />
       <SectionTitle>Section Title</SectionTitle>
-      <br />
-      <SubTitle>Sub Title </SubTitle>
       <br />
       <SubTitle>
         Sub Title <Highlighted> Sub Title Highlighted </Highlighted>
