@@ -1,6 +1,7 @@
 import React, { FC, useCallback, FormEvent, useState } from 'react';
 import SearchToInput from 'components/Inputs/SearchToInput';
 import Button from 'components/Button';
+
 import { Container, SearchIcon, CrossIcon } from './styles';
 import { Props } from './types';
 

@@ -1,15 +1,12 @@
 import React, { FC } from 'react';
+
 import { Container, ContentLoader } from './styles';
 import { Props } from './types';
 
 const Loader: FC<Props> = ({ opacity = 1 }) => {
   return (
     <Container>
-      <ContentLoader
-        viewBox="0 0 400 30"
-        backgroundColor="#f1f1f1"
-        $opacity={opacity}
-      >
+      <ContentLoader viewBox="0 0 400 30" backgroundColor="#f1f1f1" $opacity={opacity}>
         <rect x="10" y="4" rx="4" ry="4" width="45" height="7" />
         <rect x="10" y="15" rx="3" ry="3" width="25" height="6" />
 

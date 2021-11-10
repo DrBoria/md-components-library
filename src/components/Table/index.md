@@ -1249,8 +1249,16 @@ const content = [
   colsTemplate="1fr 1fr 1fr 1fr 1fr"
   headerCols={ordersRows}
   pagination={{
-    pageNavigationData: { currentPage: 0, elementsPerPage: 10, totalElements: 100 },
+    current: 2,
+    totalPages: 10,
     changePage: console.log,
+  }}
+  rowsPerPage={{
+    options: [
+      { value: 10, text: 10 },
+      { value: 20, text: 20 },
+    ],
+    current: 20,
     changeElementsPerPage: console.log,
   }}
 >

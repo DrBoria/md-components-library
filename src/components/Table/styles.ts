@@ -1,19 +1,18 @@
 import styled from 'styled-components';
+import { Theme } from 'styles/baseTheme';
 
-export const StyledTablePagination = styled.div`
-  display: block !important;
-  border-bottom: none !important;
+export const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
-type GridProps = {
-  colsTemplate: string;
-};
-
-export const Grid = styled.div<GridProps>`
+export const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${({ colsTemplate }) => colsTemplate};
+  grid-template-columns: ${({ colsTemplate }: { colsTemplate: string }) => colsTemplate};
   grid-template-rows: 1fr;
-  grid-column-gap: 1rem;
-
   align-items: center;
+
+  ${({ theme: { offsets } }: { theme: Theme }) => `
+    grid-column-gap: ${offsets.batweenElements};
+  `}
 `;

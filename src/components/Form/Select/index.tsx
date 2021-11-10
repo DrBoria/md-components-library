@@ -8,13 +8,13 @@ import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 's
 
 import ArrowDownIcon from './arrow_down.svg';
 
-type TOption = { value: any; text: string };
+export type TOption = { value: any; text: string };
 type ISelectProps = {
   name: string;
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   id: string;
   type?: string;
   value: any;
-  theme: Theme;
   defaultText?: string;
   options: TOption[];
 } & TWithBasicElementOffsets &
@@ -82,9 +82,9 @@ const Label = styled.label`
   `}
 `;
 
-const Select: FC<ISelectProps> = ({ name, id, options, defaultText = 'Choose goal' }) => (
+const Select: FC<ISelectProps> = ({ name, id, options, defaultText = 'Choose goal', onChange }) => (
   <SelectContainer>
-    <SelectInput id={id} name={name} defaultValue="0" required>
+    <SelectInput id={id} name={name} defaultValue="0" required onChange={onChange}>
       <Option disabled value="0">
         {defaultText}
       </Option>

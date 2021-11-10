@@ -7,3 +7,6 @@ import { Radio } from './Radio';
 import { Submit } from './Submit';
 
 export { Form, Input, FormLabel, TextCheckbox, Select, Radio, Submit };
+
+// Types
+export type { TOption } from './Select';

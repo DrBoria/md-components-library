@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import DefaultContentLoader from 'react-content-loader';
+
 import { ComponentProps } from './types';
 
 export const Container = styled.div`

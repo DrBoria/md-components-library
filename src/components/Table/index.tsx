@@ -2,15 +2,21 @@ import React, { FC } from 'react';
 
 import Loader from 'components/Loaders/TableLoader';
 import { SubTitle } from 'components/Typography';
+import Pagination from 'components/Pagination';
+import { Select, TOption } from 'components/Form';
 
-import { PageNavigationData } from './types';
-import { StyledTablePagination, Grid } from './styles';
+import { Grid, PaginationContainer } from './styles';
 import { StyledHeaderCell } from './TableCels/styles';
 
 type ITableContainerProps = {
   pagination?: {
-    pageNavigationData: PageNavigationData;
+    current: number;
+    totalPages: number;
     changePage: (newPage: number) => void;
+  };
+  rowsPerPage?: {
+    options: TOption[];
+    current: number;
     changeElementsPerPage: (elementsPerPage: number) => void;
   };
   isLoading?: boolean;
@@ -24,13 +30,20 @@ type ITableContainerProps = {
   children: any;
 };
 
-const TableContainer: FC<ITableContainerProps> = ({ children, headerCols, colsTemplate, isLoading, pagination }) => {
-  // const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  //   pagination?.changeElementsPerPage(parseInt(event.target.value, 10));
-  // };
-  // const handleChangePage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null, newPage: number) => {
-  //   pagination?.changePage(newPage);
-  // };
+const TableContainer: FC<ITableContainerProps> = ({
+  children,
+  headerCols,
+  colsTemplate,
+  isLoading,
+  pagination,
+  rowsPerPage,
+}) => {
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    rowsPerPage?.changeElementsPerPage(parseInt(event.target.value, 10));
+  };
+  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, newPage: number) => {
+    pagination?.changePage(newPage);
+  };
 
   return (
     <div>
@@ -46,7 +59,7 @@ const TableContainer: FC<ITableContainerProps> = ({ children, headerCols, colsTe
       ) : (
         <>
           <Grid colsTemplate={colsTemplate}>
-            {/* DISPLAY TABLE HEAD */}
+            {/* Table Head */}
             {headerCols?.map(({ text, sort = () => {}, isSortable, align }) => (
               <StyledHeaderCell key={text} onClick={sort} align={align}>
                 <SubTitle>{text}</SubTitle>
@@ -54,19 +67,31 @@ const TableContainer: FC<ITableContainerProps> = ({ children, headerCols, colsTe
               </StyledHeaderCell>
             ))}
 
-            {/* DISPLAY TABLE CONTENT */}
+            {/* Table Content (table cells will be here) */}
             {children}
           </Grid>
 
-          {pagination && (
-            <StyledTablePagination />
-            // rowsPerPageOptions={[10, 20, 50]}
-            // count={pagination.pageNavigationData.totalElements}
-            // rowsPerPage={pagination.pageNavigationData.elementsPerPage}
-            // page={pagination.pageNavigationData.currentPage}
-            // onChangePage={handleChangePage}
-            // onChangeRowsPerPage={handleChangeRowsPerPage}
-          )}
+          <PaginationContainer>
+            {/* Pagination with arrows */}
+            {pagination && (
+              <Pagination
+                pagesCount={pagination.totalPages}
+                currentPage={pagination.current}
+                onChangePage={handleChangePage}
+              />
+            )}
+
+            {/* Dropdawn for selction rows per page */}
+            {rowsPerPage && (
+              <Select
+                name="rowsPerPage"
+                id="rowsPerPage"
+                value={rowsPerPage.options[0]}
+                options={rowsPerPage.options}
+                onChange={handleChangeRowsPerPage}
+              />
+            )}
+          </PaginationContainer>
         </>
       )}
     </div>
