@@ -1,10 +1,27 @@
 import React, { FC } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Theme } from 'styles/baseTheme';
 
-import SpinnerLoader from './styles';
-import { Props } from './types';
+import { ReactComponent as DefaultSpinnerLoader } from './spinner-loader.svg';
 
-const Spinner: FC<Props> = ({ variant, ...props }) => {
-  return <SpinnerLoader $variant={variant} {...props} />;
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const SpinnerLoader = styled(DefaultSpinnerLoader)`
+  animation: ${rotate} 3s linear infinite;
+
+  color: ${({ theme: { colors } }: { theme: Theme }) => `${colors.sectionContent}`};
+`;
+
+export const Spinner: FC<any> = () => {
+  return <SpinnerLoader />;
 };
 
 export default Spinner;
