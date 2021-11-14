@@ -1,4 +1,5 @@
 import React, { FC, useCallback, FormEvent, useState } from 'react';
+
 import { Input } from 'components/Form/Input';
 
 import { TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
@@ -20,7 +21,7 @@ const SearchInput: FC<TSearchInputProps> = ({ id, name, value, onChangeValue, ..
       const newValue = e.currentTarget.value;
       onChangeValue(newValue);
     },
-    [onChangeValue],
+    [onChangeValue]
   );
 
   const handleOpenSearchInput = () => {
@@ -33,7 +34,7 @@ const SearchInput: FC<TSearchInputProps> = ({ id, name, value, onChangeValue, ..
   return (
     <Container isOpen={isSearchOpen} {...props}>
       {isSearchOpen && (
-        <Input placeholder="Search for an order" id={id} name={name} autoFocus value={value} onChange={handleChange} />
+        <Input placeholder='Search for an order' id={id} name={name} autoFocus value={value} onChange={handleChange} />
       )}
       <ButtonWrapper onClick={handleOpenSearchInput}>
         <SearchIcon />

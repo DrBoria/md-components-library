@@ -1,12 +1,16 @@
-import { PlainText } from 'components/Typography';
 import styled, { css } from 'styled-components';
 
-type StyledCellProps = {
+import { PlainText } from 'components/Typography';
+
+import { TTheme } from 'styles/baseTheme';
+
+type TStyledCellProps = {
   align?: string;
 };
 
-export const StyledTextCell = styled.div<StyledCellProps>`
-  padding: 0 1rem 1.5rem;
+export const StyledTextCell = styled.div<TStyledCellProps>`
+  padding: ${({ theme: { offsets } }: { theme: TTheme }) => offsets.elementContent};
+
   text-align: ${({ align = 'center' }) => align};
 `;
 
@@ -25,12 +29,16 @@ export const OneLineCell = styled(StyledTextCell)`
 `;
 
 export const Percentage = styled.div<{ trend?: boolean }>`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  ${PlainText} {
-    margin-left: 0.4375rem;
-  }
+  ${({ theme: { offsets } }: { theme: TTheme }) => `
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    ${PlainText} {
+      margin-left: ${offsets.batweenElements};
+    }
+  `}
+
   ${({ trend }) => {
     switch (trend) {
       case false:

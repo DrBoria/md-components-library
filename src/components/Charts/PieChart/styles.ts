@@ -1,19 +1,23 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 
 // TODO: TFR-44 move to container group or do not export
 export const NameContainer = styled.div`
+  align-items: center;
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-right: 1rem;
+  margin-right: ${({ theme: { offsets } }: { theme: TTheme }) => offsets.batweenElements};
 `;
 
 // TODO: TFR-44 looks similar to component/Status could be united and reused
 export const ColoredDot = styled.div`
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
-  border-radius: 50%;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-right: 0.75rem;
+  ${({ theme: { border, offsets, colors, elements } }: { theme: TTheme }) => `
+    background: ${colors.section};
+    border-radius: ${border.circle};
+    width: ${elements.icons};
+    height: ${elements.icons};
+    margin-right: ${offsets.batweenElements};
+  `}
 `;

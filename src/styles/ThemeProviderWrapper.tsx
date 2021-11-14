@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
 import 'react-placeholder/lib/reactPlaceholder.css';
+import styled, { ThemeProvider } from 'styled-components';
 
-import themes, { Theme } from './baseTheme';
+import themes, { TTheme } from './baseTheme';
 
 const MediaProvider = styled.div`
-  ${({ theme: { variables, screens, offsets } }: { theme: Theme }) => `
+  ${({ theme: { variables, screens, offsets } }: { theme: TTheme }) => `
     --border-radius: ${variables.border.radius}px;
     --border-size: ${variables.border.size}px;
 

@@ -20,7 +20,7 @@ const Intro: FC<any> = () => (
 
       {/* Position relative is fix for absolute positioning of image */}
       <Column style={{ position: 'relative' }}>
-        <img src="https://images.pexels.com/photos/4406335/pexels-photo-4406335.jpeg" width="400" height="400" alt="" />
+        <img src='https://images.pexels.com/photos/4406335/pexels-photo-4406335.jpeg' width='400' height='400' alt='' />
       </Column>
     </IntroSection>
   </ThemeProvider>

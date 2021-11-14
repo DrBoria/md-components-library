@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 import { FiX } from 'react-icons/fi';
-import { Theme } from 'styles/baseTheme';
+import styled from 'styled-components';
+
+import { TTheme } from 'styles/baseTheme';
 
 type TOverlayProps = {
   open: boolean;
@@ -20,7 +21,7 @@ export const Overlay = styled.div<TOverlayProps>`
 `;
 
 export const ModalContent = styled.div`
-  ${({ theme: { colors, offsets, screens, border, zIndex } }: { theme: Theme }) => `
+  ${({ theme: { colors, offsets, screens, border, zIndex } }: { theme: TTheme }) => `
     position: absolute;
     margin: 0 auto;
     top: 50%;
@@ -48,7 +49,7 @@ export const ModalContent = styled.div`
 `;
 
 export const CloseIcon = styled(FiX)`
-  ${({ theme: { colors, elements } }: { theme: Theme }) => `
+  ${({ theme: { colors, elements } }: { theme: TTheme }) => `
     cursor: pointer;
     
     color: ${colors.sectionContent};

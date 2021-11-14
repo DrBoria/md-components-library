@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { Theme } from 'styles/baseTheme';
+import { TTheme } from 'styles/baseTheme';
 import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 import ArrowDownIcon from './arrow_down.svg';
 
 export type TOption = { value: any; text: string };
-type ISelectProps = {
+type TSelectProps = {
   name: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   id: string;
@@ -20,8 +20,8 @@ type ISelectProps = {
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const SelectInput = styled.select<{ theme: Theme }>`
-  ${({ theme: { colors, border, elements, offsets } }: { theme: Theme }) => `
+const SelectInput = styled.select<{ theme: TTheme }>`
+  ${({ theme: { colors, border, elements, offsets } }: { theme: TTheme } & TFullWidth) => `
     ${basicFont};
 
     display: block;
@@ -33,14 +33,12 @@ const SelectInput = styled.select<{ theme: Theme }>`
     color: ${colors.sectionContent};
 
     width: 100%;
-    height: 100%;
-    border: 0;
 
     appearance: none;
     background: var(--color-overlay);
     border-radius: var(--border-radius);
     box-shadow: none;
-
+0
     cursor: pointer;
     outline: 0;
 
@@ -51,7 +49,7 @@ const SelectInput = styled.select<{ theme: Theme }>`
 `;
 
 const Option = styled.option`
-  ${({ theme: { colors } }: { theme: Theme }) => `
+  ${({ theme: { colors } }: { theme: TTheme }) => `
     background: ${colors.overlay};
     color: ${colors.sectionContent};
 
@@ -63,17 +61,19 @@ const Option = styled.option`
 
 const SelectContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
   position: relative;
-  display: flex;
-  overflow: hidden;
 
-  height: ${({ theme: { elements } }: { theme: Theme }) => elements.form.height};
+  display: flex;
+
+  height: ${({ theme: { elements } }: { theme: TTheme }) => elements.form.height};
+
+  overflow: hidden;
 
   ${withBasicElementOffsets};
   ${({ fullWidth }) => fullWidth && 'width: 100%;'}
 `;
 
 const Label = styled.label`
-  ${({ theme: { elements, offsets } }: { theme: Theme }) => `
+  ${({ theme: { elements, offsets } }: { theme: TTheme }) => `
     position: absolute;
     top: ${offsets.elementContent};
     right: ${offsets.elementContent};
@@ -82,10 +82,10 @@ const Label = styled.label`
   `}
 `;
 
-const Select: FC<ISelectProps> = ({ name, id, options, defaultText = 'Choose goal', onChange }) => (
+const Select: FC<TSelectProps> = ({ name, id, options, defaultText = 'Choose goal', onChange }) => (
   <SelectContainer>
-    <SelectInput id={id} name={name} defaultValue="0" required onChange={onChange}>
-      <Option disabled value="0">
+    <SelectInput id={id} name={name} defaultValue='0' required onChange={onChange}>
+      <Option disabled value='0'>
         {defaultText}
       </Option>
       {options.map((option: TOption, index: number) => (
@@ -96,7 +96,7 @@ const Select: FC<ISelectProps> = ({ name, id, options, defaultText = 'Choose goa
     </SelectInput>
 
     <Label htmlFor={id}>
-      <img src={ArrowDownIcon} alt="" />
+      <img src={ArrowDownIcon} alt='' />
     </Label>
   </SelectContainer>
 );

@@ -54,6 +54,7 @@ const base = {
   border: {
     radius: 'var(--border-radius)',
     size: 'var(--border-size)',
+    circle: '50%',
   },
 
   offsets: {
@@ -120,6 +121,6 @@ const base = {
   },
 };
 
-export type Theme = typeof base;
+export type TTheme = typeof base;
 
 export default base;

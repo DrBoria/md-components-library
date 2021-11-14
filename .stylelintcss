@@ -1,0 +1,19 @@
+{
+  "processors": [
+    [
+      "stylelint-processor-styled-components",
+      {
+        "moduleName": [
+          "styled-components"
+        ],
+        "importName": [
+          "css"
+        ],
+        "strict": false
+      }
+    ]
+  ],
+  "extends": [
+    "./.stylelintrc"
+  ]
+}

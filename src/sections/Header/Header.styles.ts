@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 
 export const HeaderSection = styled.div`
-  ${({ theme: { colors, offsets, zIndex, elements, screens } }: { theme: Theme }) => `
+  ${({ theme: { colors, offsets, zIndex, elements, screens } }: { theme: TTheme }) => `
     position: fixed;
     z-index: ${zIndex.navigation};
     top: 0;

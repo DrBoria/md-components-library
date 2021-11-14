@@ -1,11 +1,11 @@
 import Form from './Form';
-import { Input } from './Input';
-import { SearchInput } from './SearchInput';
 import { FormLabel } from './FormLabel';
-import { TextCheckbox } from './TextCheckbox';
-import { Select } from './Select';
+import { Input } from './Input';
 import { Radio } from './Radio';
+import { SearchInput } from './SearchInput';
+import { Select } from './Select';
 import { Submit } from './Submit';
+import { TextCheckbox } from './TextCheckbox';
 
 export { Form, Input, SearchInput, FormLabel, TextCheckbox, Select, Radio, Submit };
 

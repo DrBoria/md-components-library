@@ -1,14 +1,16 @@
 import styled from 'styled-components';
+
 import { BasicSection } from 'components/Containers';
 import { PageTitle } from 'components/Typography';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 
 export const IntroSection = styled(BasicSection)`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
 
-  ${({ theme: { screens } }: { theme: Theme }) => `
+  ${({ theme: { screens } }: { theme: TTheme }) => `
     @media (min-width: ${screens.tablet.width}px) {
       grid-template-columns: 1fr 1fr;
     }
@@ -29,7 +31,7 @@ export const Column = styled.div`
   justify-content: center;
   text-align: center;
 
-  ${({ theme: { screens } }: { theme: Theme }) => `
+  ${({ theme: { screens } }: { theme: TTheme }) => `
     @media (min-width: ${screens.tablet.width}px) {
       align-items: flex-start;
       text-align: start;

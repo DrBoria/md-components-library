@@ -1,18 +1,20 @@
-import { basicFont } from 'components/Typography';
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { basicFont } from 'components/Typography';
+
+import { TTheme } from 'styles/baseTheme';
 import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type IInputProps = {
+type TInputProps = {
   name: string;
   id?: string;
   type?: string;
-  theme: Theme;
+  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const Input = styled.input<IInputProps>`
-  ${({ theme: { colors, border, elements, offsets } }: IInputProps) => `
+const Input = styled.input<TInputProps>`
+  ${({ theme: { colors, border, elements, offsets } }: TInputProps) => `
     ${basicFont};
 
     display: block;

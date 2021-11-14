@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 
 export const NameContainer = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ export const NameContainer = styled.div`
 `;
 
 export const ColoredDot = styled.div`
-  background: ${({ theme: { colors } }: { theme: Theme }) => colors.section};
+  background: ${({ theme: { colors } }: { theme: TTheme }) => colors.section};
   border-radius: 50%;
   width: 0.75rem;
   height: 0.75rem;

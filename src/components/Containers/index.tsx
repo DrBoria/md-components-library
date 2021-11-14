@@ -1,15 +1,16 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 import { TWithBasicElementOffsets, withBasicElementOffsets, TFullWidth, withFullWidth } from 'styles/helpers';
 
-type IContainersProps = {
+type TContainersProps = {
   className?: string;
   style?: any;
 };
 
-type ISectionProps = {
+type TSectionProps = {
   noHeightLimit?: boolean;
-} & IContainersProps & { theme: Theme };
+} & TContainersProps & { theme: TTheme };
 
 /**
  * @visibleName Containers
@@ -17,8 +18,8 @@ type ISectionProps = {
 
 // Use this conteiner for wrapping any section on page
 // No usage restrictions
-export const BasicSection = styled.div<ISectionProps>`
-  ${({ noHeightLimit, theme: { screens, elements, colors, offsets } }: ISectionProps) => `
+export const BasicSection = styled.div<TSectionProps>`
+  ${({ noHeightLimit, theme: { screens, elements, colors, offsets } }: TSectionProps) => `
     padding: ${offsets.section};
 
     background-color: ${colors.section};
@@ -49,7 +50,7 @@ export const BasicSection = styled.div<ISectionProps>`
 // Use this container for wrapping all page content
 // Should be used only once per page
 export const PageContainer = styled.div`
-  ${({ theme: { elements, offsets } }: { theme: Theme }) =>
+  ${({ theme: { elements, offsets } }: { theme: TTheme }) =>
     `
       padding: ${offsets.container};
       padding-top: ${elements.header.height};

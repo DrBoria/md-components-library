@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 
 export const PaginationContainer = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ export const Grid = styled.div`
   grid-template-rows: 1fr;
   align-items: center;
 
-  ${({ theme: { offsets } }: { theme: Theme }) => `
+  ${({ theme: { offsets } }: { theme: TTheme }) => `
     grid-column-gap: ${offsets.batweenElements};
   `}
 `;

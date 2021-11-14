@@ -4,12 +4,12 @@ import { PlainText } from 'components/Typography';
 
 import { StyledTextCell } from './styles';
 
-type ITextDisplayCellProps = {
+type TTextDisplayCellProps = {
   text: any;
   align?: 'center' | 'left' | 'right';
 };
 
-const TextDisplayCell: FC<ITextDisplayCellProps> = ({ text, align, ...props }) => {
+const TextDisplayCell: FC<TTextDisplayCellProps> = ({ text, align, ...props }) => {
   return (
     <StyledTextCell align={align} {...props}>
       <PlainText>{text}</PlainText>

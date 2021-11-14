@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import styled from 'styled-components';
 
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 import Button from 'components/Button';
+
+import { TTheme } from 'styles/baseTheme';
+import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TPaginationProps = {
   pagesCount: number;
@@ -14,7 +15,7 @@ type TPaginationProps = {
   TFullWidth;
 
 const Container = styled.div`
-  ${({ theme: { elements, offsets } }: { theme: Theme }) => `
+  ${({ theme: { elements, offsets } }: { theme: TTheme }) => `
     height: ${elements.form.height};
 
     display: flex;
@@ -29,7 +30,7 @@ const Container = styled.div`
 `;
 
 const Number = styled(Button)`
-  ${({ active, theme: { colors } }: { theme: Theme; active: boolean }) => `
+  ${({ active, theme: { colors } }: { theme: TTheme; active: boolean }) => `
     border: none;
     background: ${colors.overlay};
     

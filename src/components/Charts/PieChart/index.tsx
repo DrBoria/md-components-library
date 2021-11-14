@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { PieChart as DefaultPieChart, Cell, Pie } from 'recharts';
-import { PlainText } from 'components/Typography';
+
 import { GraphicsContainer, LegendContainer, LegendRowContainer } from 'components/Charts/styles';
+import { PlainText } from 'components/Typography';
 
-import { Props } from './types';
 import { NameContainer, ColoredDot } from './styles';
+import { TProps } from './types';
 
-const PieChart: FC<Props> = ({ data }) => {
+const PieChart: FC<TProps> = ({ data }) => {
   const COLORS = ['#FF7664', '#3DC694', '#FFAD4F', '#754A89', '#498DF2'];
 
   return (
@@ -14,10 +15,10 @@ const PieChart: FC<Props> = ({ data }) => {
       <DefaultPieChart width={200} height={200}>
         <Pie
           data={data}
-          dataKey="totalSales"
-          nameKey="name"
-          cx="50%"
-          cy="50%"
+          dataKey='totalSales'
+          nameKey='name'
+          cx='50%'
+          cy='50%'
           innerRadius={60}
           outerRadius={100}
           paddingAngle={0}

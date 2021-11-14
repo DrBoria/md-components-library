@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TButton = {
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   className?: string;
   type?: 'navigation' | 'menu';
-  theme: Theme;
+  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
@@ -44,7 +45,6 @@ const Button = styled.button<TButton>`
   `}
 
   ${withBasicElementOffsets}
-
   ${({ fullWidth }) => fullWidth && 'width: 100%;'}
 `;
 

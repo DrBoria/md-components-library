@@ -3,23 +3,24 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { Theme } from 'styles/baseTheme';
+import { TTheme } from 'styles/baseTheme';
 import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type ITextCheckboxProps = {
+type TTextCheckboxProps = {
   name: string;
   id: string;
-  theme: Theme;
+  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
 const CheckboxContainer = styled.div`
   display: inline-block;
+
   cursor: pointer;
 `;
 
 const CheckboxInput = styled.input<TWithBasicElementOffsets & TFullWidth>`
-  ${({ theme: { colors, elements, offsets, border } }: { theme: Theme }) => `
+  ${({ theme: { colors, elements, offsets, border } }: { theme: TTheme }) => `
     display: none;
 
     & + label {
@@ -49,9 +50,9 @@ const CheckboxInput = styled.input<TWithBasicElementOffsets & TFullWidth>`
   `}
 `;
 
-const TextCheckbox: FC<ITextCheckboxProps> = ({ name, id, ...props }) => (
+const TextCheckbox: FC<TTextCheckboxProps> = ({ name, id, ...props }) => (
   <CheckboxContainer {...props}>
-    <CheckboxInput id={id} name={name} type="checkbox" />
+    <CheckboxInput id={id} name={name} type='checkbox' />
     <label htmlFor={id}>{name}</label>
   </CheckboxContainer>
 );

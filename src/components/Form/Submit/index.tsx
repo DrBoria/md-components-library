@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { Theme } from 'styles/baseTheme';
+import { TTheme } from 'styles/baseTheme';
 import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TSubmitProps = {
   name: string;
   id?: string;
   value: any;
-  theme: Theme;
+  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
@@ -35,6 +35,6 @@ const SubmitInput = styled.input<TSubmitProps>`
   `}
 `;
 
-const Submit: FC<TSubmitProps> = (props) => <SubmitInput {...props} type="submit" />;
+const Submit: FC<TSubmitProps> = (props) => <SubmitInput {...props} type='submit' />;
 
 export { Submit };

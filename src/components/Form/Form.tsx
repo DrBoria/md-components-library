@@ -1,16 +1,16 @@
 import { FormEventHandler } from 'react';
-
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
+
+import { TTheme } from 'styles/baseTheme';
 import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type IFormProps = {
+type TFormProps = {
   onSubmit: FormEventHandler<HTMLFormElement>;
-  theme: Theme;
+  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const Form = styled.form<IFormProps>`
+const Form = styled.form<TFormProps>`
   ${withBasicElementOffsets}
 
   ${({ fullWidth }) => fullWidth && 'width: 100%;'}

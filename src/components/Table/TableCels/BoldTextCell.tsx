@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 
 import { StyledTextCell } from './styles';
 
-type IBoldTextCellProps = {
+type TBoldTextCellProps = {
   text: any;
   align?: 'center' | 'left' | 'right';
 };
 
-const BoldTextCell: FC<IBoldTextCellProps> = ({ text, align, ...props }) => {
+const BoldTextCell: FC<TBoldTextCellProps> = ({ text, align, ...props }) => {
   return (
     <StyledTextCell align={align} {...props}>
       <b>{text}</b>

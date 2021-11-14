@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "es6",
+    "jsx": "react",
+    "strict": true, // Enable all strict type checking options
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "noUnusedParameters": true, // Report errors on unused parameters
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["es2016", "es2017", "dom"],
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@constants/*": ["src/constants/*"],
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"],
+      "@redux/*": ["src/redux/*"],
+      "@ducks/*": ["src/redux/ducks/*"],
+      "@libs/*": ["src/libs/*"],
+      "@styles/*": ["src/assets/scss/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@icons/*": ["src/assets/icons/*"],
+      "@definitions": ["src/definitions/index.ts"],
+      "@mocks/*": ["src/mocks/*"],
+      "@test/*": ["src/test/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "awesomeTypescriptLoaderOptions": {
+    "reportFiles": ["./src/**/*"]
+  }
+}
