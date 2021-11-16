@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 
 import TableContainer from 'components/Table';
 import { TextDisplayCell, BoldTextDisplayCell, StatusCell, NavigationCell } from 'components/Table/TableCels';
-import WithPagination from 'utils/WithPagination';
+import WithPagination from 'utils/withPagination';
 const ordersRows = [
   { text: 'Order Id' },
   { text: 'Client Name' },

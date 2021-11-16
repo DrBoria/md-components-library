@@ -1,8 +1,6 @@
 import { FiX } from 'react-icons/fi';
 import styled from 'styled-components';
 
-import { TTheme } from 'styles/baseTheme';
-
 type TOverlayProps = {
   open: boolean;
 };
@@ -12,48 +10,43 @@ export const Overlay = styled.div<TOverlayProps>`
   top: 0;
   left: 0;
 
+  display: ${({ open }) => (open ? 'block' : 'none')};
   width: 100%;
   height: 100%;
 
   background: #00000080;
-
-  display: ${({ open }) => (open ? 'block' : 'none')};
 `;
 
 export const ModalContent = styled.div`
-  ${({ theme: { colors, offsets, screens, border, zIndex } }: { theme: TTheme }) => `
-    position: absolute;
-    margin: 0 auto;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    z-index: ${zIndex.alert};
-  
-    height: auto;
-    width: calc(${screens.mobile.width} - ${offsets.section});
-    padding: ${offsets.section};
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: ${({ theme }) => theme.zIndex.alert};
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: ${({ theme }) => `calc(${theme.screens.mobile.width} - ${theme.offsets.section})`};
+  height: auto;
+  margin: 0 auto;
+  padding: ${({ theme }) => theme.offsets.section};
 
-    background: ${colors.section};
-    border-radius: ${border.radius};
-    border: ${border.size} solid ${colors.sectionContent};
+  background: ${({ theme }) => theme.colors.section};
+  border: ${({ theme }) => `${theme.border.size} solid ${theme.colors.sectionContent}`};
+  border-radius: ${({ theme }) => theme.border.radius};
+  transform: translateY(-50%);
 
-    :focus {
-      outline: none;
-    }
-  `};
+  :focus {
+    outline: none;
+  }
 `;
 
 export const CloseIcon = styled(FiX)`
-  ${({ theme: { colors, elements } }: { theme: TTheme }) => `
-    cursor: pointer;
-    
-    color: ${colors.sectionContent};
-    width: ${elements.icons.width};
-    height: ${elements.icons.height};
-  `};
+  width: ${({ theme }) => theme.elements.icons.width};
+  height: ${({ theme }) => theme.elements.icons.height};
+
+  color: ${({ theme }) => theme.colors.sectionContent};
+
+  cursor: pointer;
 `;

@@ -3,19 +3,17 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { TTheme } from 'styles/baseTheme';
-
 import { TComponentProps } from './types';
 
 export const NameContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: ${({ theme: { offsets } }: { theme: TTheme }) => offsets.batweenElements};
+  margin-right: ${({ theme }) => theme.offsets.batweenElements};
 `;
 
 export const ColoredDot = styled.div`
-  ${({ theme: { border, offsets, colors } }: { theme: TTheme }) => `
+  ${({ theme: { border, offsets, colors } }) => `
     background: ${colors.section};
     border-radius: ${border.circle};
     width: ${offsets.batweenElements};
@@ -25,7 +23,7 @@ export const ColoredDot = styled.div`
 `;
 
 export const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
-  ${({ theme: { border, offsets, colors } }: { theme: TTheme }) => `
+  ${({ theme: { border, offsets, colors } }) => `
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +39,7 @@ export const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
     }
 
     .recharts-text {
-      ${basicFont};
+      font: ${basicFont};
       color: ${colors.sectionContent};
     }
 
@@ -54,7 +52,7 @@ export const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
     }
 
     .recharts-reference-line text {
-      ${basicFont};
+      font: ${basicFont};
       font-weight: 600;
       text-align: right;
     }

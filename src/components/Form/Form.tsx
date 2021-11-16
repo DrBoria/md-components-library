@@ -1,18 +1,16 @@
 import { FormEventHandler } from 'react';
 import styled from 'styled-components';
 
-import { TTheme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TFormProps = {
   onSubmit: FormEventHandler<HTMLFormElement>;
-  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
 const Form = styled.form<TFormProps>`
-  ${withBasicElementOffsets}
-
-  ${({ fullWidth }) => fullWidth && 'width: 100%;'}
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;
 export default Form;

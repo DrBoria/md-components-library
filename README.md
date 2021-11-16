@@ -32,3 +32,4 @@ Please use following style/princeples:
     ** styles **
     5) All app variables should be declared in /src/styles/baseTheme.ts
     6) Better use varables from baseTheme.ts through the projects
+    7) Try to avoid template literal interpolation, cause it will brake styles autofix (no 	${props => props.great && 'color: red'})

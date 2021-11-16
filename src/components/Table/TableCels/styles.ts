@@ -1,15 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { PlainText } from 'components/Typography';
-
-import { TTheme } from 'styles/baseTheme';
 
 type TStyledCellProps = {
   align?: string;
 };
 
 export const StyledTextCell = styled.div<TStyledCellProps>`
-  padding: ${({ theme: { offsets } }: { theme: TTheme }) => offsets.elementContent};
+  padding: ${({ theme: { offsets } }) => offsets.elementContent};
 
   text-align: ${({ align = 'center' }) => align};
 `;
@@ -29,31 +27,12 @@ export const OneLineCell = styled(StyledTextCell)`
 `;
 
 export const Percentage = styled.div<{ trend?: boolean }>`
-  ${({ theme: { offsets } }: { theme: TTheme }) => `
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  ${PlainText} {
+    margin-left: ${({ theme }) => theme.offsets.batweenElements};
 
-    ${PlainText} {
-      margin-left: ${offsets.batweenElements};
-    }
-  `}
-
-  ${({ trend }) => {
-    switch (trend) {
-      case false:
-        return css`
-          ${PlainText} {
-            color: ${({ theme }) => theme.colors.redMedium};
-          }
-        `;
-      case true:
-      default:
-        return css`
-          ${PlainText} {
-            color: ${({ theme }) => theme.colors.greenMedium};
-          }
-        `;
-    }
-  }}
+    color: ${({ trend, theme }) => (trend ? theme.colors.disabled : theme.colors.highlighted)};
+  }
 `;

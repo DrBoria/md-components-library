@@ -3,36 +3,31 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { TTheme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TSubmitProps = {
   name: string;
   id?: string;
   value: any;
-  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
 const SubmitInput = styled.input<TSubmitProps>`
-  ${({ theme: { colors, border, elements, offsets } }: TSubmitProps) => `
-    ${basicFont};
+  display: block;
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  height: ${({ theme }) => theme.elements.form.height};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
+  padding: ${({ theme }) => `${theme.offsets.elementContent} calc(${theme.offsets.elementContent} * 2)`};
 
-    cursor: pointer;
-    display: block;
-    height: ${elements.form.height};
-    padding: ${offsets.elementContent} calc(${offsets.elementContent} * 2);
+  color: ${({ theme }) => theme.colors.highlightedText};
+  font: ${basicFont};
+  font-weight: 700;
 
-    border: none;
-    background: ${colors.highlighted};
-    border-radius: ${border.radius};
-    color: ${colors.highlightedText};
-    
-    font-weight: 700;
-
-    ${withBasicElementOffsets};
-    ${({ fullWidth }: TFullWidth) => fullWidth && 'width: 100%;'};
-  `}
+  background: ${({ theme }) => theme.colors.highlighted};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
+  cursor: pointer;
 `;
 
 const Submit: FC<TSubmitProps> = (props) => <SubmitInput {...props} type='submit' />;

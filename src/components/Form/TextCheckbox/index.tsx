@@ -3,13 +3,11 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { TTheme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TTextCheckboxProps = {
   name: string;
   id: string;
-  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
@@ -20,34 +18,32 @@ const CheckboxContainer = styled.div`
 `;
 
 const CheckboxInput = styled.input<TWithBasicElementOffsets & TFullWidth>`
-  ${({ theme: { colors, elements, offsets, border } }: { theme: TTheme }) => `
-    display: none;
+  display: none;
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 
-    & + label {
-      ${basicFont};
+  &:checked + label {
+    color: ${({ theme }) => theme.colors.highlightedText};
 
-      cursor: pointer;
+    background: ${({ theme }) => theme.colors.highlighted};
+  }
 
-      display: inline-block;
-      height: ${elements.form.height};
-      padding: ${offsets.elementContent};
+  & + label {
+    display: inline-block;
+    height: ${({ theme }) => theme.elements.form.height};
+    padding: ${({ theme }) => theme.offsets.elementContent};
 
-      background: ${colors.overlay};
-      border-radius:${border.radius};
-    }
+    font: ${basicFont};
 
-    & + label:hover {
-      background: ${colors.overlayActive};
-    }
+    background: ${({ theme }) => theme.colors.overlay};
+    border-radius: ${({ theme }) => theme.border.radius};
+    cursor: pointer;
+  }
 
-    &:checked + label {
-      background: ${colors.highlighted};
-      color: ${colors.highlightedText};
-    }
-
-    ${withBasicElementOffsets};
-    ${({ fullWidth }: TFullWidth) => fullWidth && 'width: 100%;'};
-  `}
+  & + label:hover {
+    background: ${({ theme }) => theme.colors.overlayActive};
+  }
 `;
 
 const TextCheckbox: FC<TTextCheckboxProps> = ({ name, id, ...props }) => (

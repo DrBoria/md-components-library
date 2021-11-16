@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { TTheme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 import ArrowDownIcon from './arrow_down.svg';
 
@@ -20,66 +19,57 @@ type TSelectProps = {
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const SelectInput = styled.select<{ theme: TTheme }>`
-  ${({ theme: { colors, border, elements, offsets } }: { theme: TTheme } & TFullWidth) => `
-    ${basicFont};
+const SelectInput = styled.select`
+  display: block;
+  width: 100%;
+  height: ${({ theme }) => theme.elements.form.height};
+  padding: ${({ theme }) => theme.offsets.elementContent};
 
-    display: block;
-    height: ${elements.form.height};
-    padding: ${offsets.elementContent};
-    border: none;
-    background: ${colors.overlay};
-    border-radius: ${border.radius};
-    color: ${colors.sectionContent};
+  color: ${({ theme }) => theme.colors.sectionContent};
+  font: ${basicFont};
 
-    width: 100%;
+  background: ${({ theme }) => theme.colors.overlay};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
+  outline: 0;
+  box-shadow: none;
+  cursor: pointer;
 
-    appearance: none;
-    background: var(--color-overlay);
-    border-radius: var(--border-radius);
-    box-shadow: none;
-0
-    cursor: pointer;
-    outline: 0;
+  appearance: none;
 
-    &:invalid {
-      color: ${colors.disabled};
-    }
-  `}
+  &:invalid {
+    color: ${({ theme }) => theme.colors.disabled};
+  }
 `;
 
 const Option = styled.option`
-  ${({ theme: { colors } }: { theme: TTheme }) => `
-    background: ${colors.overlay};
-    color: ${colors.sectionContent};
+  color: ${({ theme }) => theme.colors.sectionContent};
 
-    &:disabled {
-        color: ${colors.disabled};
-    }
-  `}
+  background: ${({ theme }) => theme.colors.overlay};
+
+  &:disabled {
+    color: ${({ theme }) => theme.colors.disabled};
+  }
 `;
 
 const SelectContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
   position: relative;
 
   display: flex;
-
-  height: ${({ theme: { elements } }: { theme: TTheme }) => elements.form.height};
-
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  height: ${({ theme }) => theme.elements.form.height};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
   overflow: hidden;
-
-  ${withBasicElementOffsets};
-  ${({ fullWidth }) => fullWidth && 'width: 100%;'}
 `;
 
 const Label = styled.label`
-  ${({ theme: { elements, offsets } }: { theme: TTheme }) => `
-    position: absolute;
-    top: ${offsets.elementContent};
-    right: ${offsets.elementContent};
-    width: calc(${elements.form.height} - ${offsets.elementContent} * 2);
-    height: calc(${elements.form.height} - ${offsets.elementContent} * 2);
-  `}
+  position: absolute;
+  top: ${({ theme }) => theme.offsets.elementContent};
+  right: ${({ theme }) => theme.offsets.elementContent};
+
+  width: ${({ theme }) => `calc(${theme.elements.form.height} - ${theme.offsets.elementContent} * 2)`};
+  height: ${({ theme }) => `calc(${theme.elements.form.height} - ${theme.offsets.elementContent} * 2)`};
 `;
 
 const Select: FC<TSelectProps> = ({ name, id, options, defaultText = 'Choose goal', onChange }) => (

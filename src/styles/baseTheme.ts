@@ -17,6 +17,12 @@ const screens = {
   desktopHeight: 980,
 };
 
+export const devices = {
+  mobile: `(min-width: ${screens.mobileWidth}px)`,
+  tablet: `(min-width: ${screens.tabletWidth}px)`,
+  desktop: `(min-width: ${screens.desktopWidth}px)`,
+};
+
 const basicOffset = 8;
 const base = {
   zIndex: {
@@ -70,14 +76,17 @@ const base = {
 
   screens: {
     mobile: {
+      device: `(min-width: ${screens.mobileWidth}px)`,
       height: screens.mobileHeight,
       width: screens.mobileWidth,
     },
     tablet: {
+      device: `(min-width: ${screens.tabletWidth}px)`,
       height: screens.tabletHeight,
       width: screens.tabletWidth,
     },
     desktop: {
+      device: `(min-width: ${screens.desktopWidth}px)`,
       height: screens.desktopHeight,
       width: screens.desktopWidth,
     },
@@ -121,6 +130,11 @@ const base = {
   },
 };
 
-export type TTheme = typeof base;
+type TTheme = typeof base;
+
+// Fix for typescript basic theme apply
+declare module 'styled-components' {
+  export type TDefaultTheme = TTheme;
+}
 
 export default base;

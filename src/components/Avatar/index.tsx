@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 const Avatar = styled.img`
-  height: 3rem;
-  width: 3rem;
-  border-radius: 1.5rem;
+  width: ${({ theme }) => theme.elements.icons.width};
+  height: ${({ theme }) => theme.elements.icons.height};
   object-fit: cover;
+
+  border-radius: ${({ theme }) => theme.border.circle};
 `;
 
 export default Avatar;

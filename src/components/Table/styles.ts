@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { TTheme } from 'styles/baseTheme';
-
 export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -9,11 +7,8 @@ export const PaginationContainer = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${({ colsTemplate }: { colsTemplate: string }) => colsTemplate};
+  grid-column-gap: ${({ theme }) => theme.offsets.batweenElements};
   grid-template-rows: 1fr;
+  grid-template-columns: ${({ colsTemplate }: { colsTemplate: string }) => colsTemplate};
   align-items: center;
-
-  ${({ theme: { offsets } }: { theme: TTheme }) => `
-    grid-column-gap: ${offsets.batweenElements};
-  `}
 `;

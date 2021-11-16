@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { TDefaultTheme, ThemeProvider } from 'styled-components';
 
 import Button from 'components/Button';
 import { Highlighted } from 'components/Typography';
@@ -9,7 +9,7 @@ import { dark } from 'styles/themes';
 import { TitleSection, Column, IntroSection } from './Intro.styles';
 
 const Intro: FC<any> = () => (
-  <ThemeProvider theme={{ colors: dark }}>
+  <ThemeProvider theme={{ colors: dark } as TDefaultTheme}>
     <IntroSection>
       <Column>
         <TitleSection>

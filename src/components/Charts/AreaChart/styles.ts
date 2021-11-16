@@ -1,7 +1,7 @@
 import { ResponsiveContainer } from 'recharts';
 import styled, { css } from 'styled-components';
 
-import { TTheme } from 'styles/baseTheme';
+import { basicFont } from 'components/Typography';
 
 import { TComponentProps } from './types';
 
@@ -9,21 +9,21 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 1rem;
-  background-color: ${({ theme: { colors } }: { theme: TTheme }) => colors.section};
+
+  border-radius: ${({ theme }) => theme.border.radius};
+  background-color: ${({ theme: { colors } }) => colors.section};
 
   .recharts-surface {
-    padding: 2rem 0rem 1rem 1rem;
+    padding: ${({ theme }) => theme.offsets.batweenElements};
   }
 
   .recharts-cartesian-axis-line {
-    stroke: ${({ theme: { colors } }: { theme: TTheme }) => colors.sectionContent};
+    stroke: ${({ theme: { colors } }) => colors.sectionContent};
   }
 
   .recharts-text {
-    color: ${({ theme: { colors } }: { theme: TTheme }) => colors.sectionContent};
-    font-size: 1.0625rem;
-    line-height: 1.5rem;
+    color: ${({ theme: { colors } }) => colors.sectionContent};
+    font: ${basicFont};
   }
 
   .recharts-cartesian-axis-tick-line {
@@ -32,13 +32,6 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
 
   .recharts-reference-line {
     stroke-dasharray: 10 10;
-  }
-
-  .recharts-reference-line text {
-    font-size: 1.0625rem;
-    line-height: 1.5rem;
-    font-weight: 600;
-    text-align: right;
   }
 
   .recharts-reference-line line {
@@ -54,7 +47,8 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
       r: 0.45rem;
       fill-opacity: 1;
       stroke-width: 2;
-      stroke: ${({ theme: { colors } }: { theme: TTheme }) => colors.section};
+
+      stroke: ${({ theme: { colors } }) => colors.section};
     }
   }
 
@@ -66,7 +60,7 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
     switch (variant) {
       case 'green':
         return css`
-          ${({ theme: { colors } }: { theme: TTheme }) => `
+          ${({ theme: { colors } }) => `
           .recharts-reference-line line {
             stroke: ${colors.sectionContent};
           }
@@ -88,7 +82,7 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
         `;
       case 'red':
         return css`
-          ${({ theme: { colors } }: { theme: TTheme }) => `
+          ${({ theme: { colors } }) => `
 
           .recharts-reference-line line {
             stroke: ${colors.sectionContent};
@@ -112,7 +106,7 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
       case 'yellow':
       default:
         return css`
-          ${({ theme: { colors } }: { theme: TTheme }) => `
+          ${({ theme: { colors } }) => `
 
         .recharts-reference-line line {
           stroke: ${colors.highlighted};

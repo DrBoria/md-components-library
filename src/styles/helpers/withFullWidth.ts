@@ -6,5 +6,5 @@ export type TFullWidth = {
 };
 
 export const withFullWidth = css`
-  ${({ fullWidth }: TFullWidth) => (fullWidth ? 'width: 100%' : '')};
+  ${({ fullWidth }: TFullWidth) => (fullWidth ? 'width: 100%' : '')}
 `;

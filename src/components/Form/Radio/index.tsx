@@ -3,39 +3,37 @@ import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { TTheme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TRadioProps = {
   name: string;
   id?: string;
   value: any;
   type: 'radio';
-  theme: TTheme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
 const RadioInput = styled.input<TRadioProps>`
-  ${({ theme: { colors, border, elements, offsets } }: TRadioProps) => `
-    ${basicFont};
+  display: block;
+  height: ${({ theme }) => theme.elements.form.height};
+  padding: ${({ theme }) => theme.offsets.elementContent};
 
-    display: block;
-    height: ${elements.form.height};
-    padding: ${offsets.elementContent};
-    border: none;
-    background: ${colors.overlay};
-    border-radius: ${border.radius};
-    color: ${colors.sectionContent};
-  `}
+  color: ${({ theme }) => theme.colors.sectionContent};
+  font: ${basicFont};
+
+  background: ${({ theme }) => theme.colors.overlay};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
 `;
 
 const RadioContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
   display: flex;
   align-items: center;
-  height: ${({ theme: { elements } }: { theme: TTheme }) => elements.form.height};
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  height: ${({ theme }) => theme.elements.form.height};
 
-  ${withBasicElementOffsets};
-  ${({ fullWidth }) => fullWidth && 'width: 100%;'}
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;
 
 const Radio: FC<TRadioProps> = ({ name, id, value, ...props }) => (

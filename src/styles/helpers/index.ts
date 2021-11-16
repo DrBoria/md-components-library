@@ -1,5 +1,5 @@
-import { TWithBasicElementOffsets, withBasicElementOffsets } from './withBasicElementOffset';
+import { TWithBasicElementOffsets, withOffsetsRight, withOffsetBottom } from './withBasicElementOffset';
 import { TFullWidth, withFullWidth } from './withFullWidth';
 
-export { withBasicElementOffsets, withFullWidth };
+export { withOffsetsRight, withOffsetBottom, withFullWidth };
 export type { TFullWidth, TWithBasicElementOffsets };

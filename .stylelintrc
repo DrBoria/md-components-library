@@ -1,14 +1,16 @@
 {
   "extends": [
+    "stylelint-config-prettier",
     "stylelint-config-recommended",
     "stylelint-config-styled-components",
     "stylelint-config-rational-order"
   ],
   "plugins": [
     "stylelint-order",
+    "stylelint-config-rational-order/plugin",
     "stylelint-declaration-strict-value"
   ],
-  "syntax": "scss",
+  "customSyntax": "@stylelint/postcss-css-in-js",
   "defaultSeverity": "error",
   "rules": {
     "indentation": 2,
@@ -28,7 +30,6 @@
     "value-no-vendor-prefix": true,
     "number-leading-zero": "always",
     "function-url-quotes": "always",
-    "font-family-name-quotes": "always-where-recommended",
     "comment-whitespace-inside": "always",
     "comment-empty-line-before": "always",
     "at-rule-no-vendor-prefix": true,
@@ -67,6 +68,7 @@
     "function-comma-space-after": "always",
     "function-comma-space-before": "always",
     "function-parentheses-space-inside": "never",
+    "no-descending-specificity": null,
     "scale-unlimited/declaration-strict-value": [
       [
         "/color$/",
@@ -81,9 +83,16 @@
         "/^margin/"
       ],
       {
+        "disableFix": true,
+        "expandShorthand": true,
         "ignoreValues": [
           "/100%/",
-          "/0/"
+          "/0/",
+          "/=>/",
+          "auto",
+          "inherit",
+          "transparent",
+          "/theme(.)+/"
         ]
       }
     ],

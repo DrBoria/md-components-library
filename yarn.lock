@@ -112,7 +112,7 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
-"@babel/core@>=7.2.2":
+"@babel/core@>=7.2.2", "@babel/core@>=7.9.0":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.16.0.tgz#c4ff44046f5fe310525cc9eb4ef5147f0c5374d4"
   integrity sha512-mYZEvshBRHGsIAiyH5PzCFTCfbWfoYbO/jcSdXQSUQu1/pW0xDZAUP7KEc32heqWTAfAHhV9j1vH8Sav7l+JNQ==
@@ -4361,6 +4361,13 @@
     regenerator-runtime "^0.13.3"
     resolve-from "^5.0.0"
     store2 "^2.7.1"
+
+"@stylelint/postcss-css-in-js@^0.37.2":
+  version "0.37.2"
+  resolved "https://registry.yarnpkg.com/@stylelint/postcss-css-in-js/-/postcss-css-in-js-0.37.2.tgz#7e5a84ad181f4234a2480803422a47b8749af3d2"
+  integrity sha512-nEhsFoJurt8oUmieT8qy4nk81WRHmJynmVwn/Vts08PL9fhgIsMhk1GId5yAN643OzqEEb5S/6At2TZW7pqPDA==
+  dependencies:
+    "@babel/core" ">=7.9.0"
 
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"
@@ -15940,6 +15947,14 @@ postcss-sorting@^4.1.0:
     lodash "^4.17.4"
     postcss "^7.0.0"
 
+postcss-sorting@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-sorting/-/postcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
+  integrity sha512-Y9fUFkIhfrm6i0Ta3n+89j56EFqaNRdUKqXyRp6kvTcSXnmgEjaVowCXH+JBe9+YKWqd4nc28r2sgwnzJalccA==
+  dependencies:
+    lodash "^4.17.14"
+    postcss "^7.0.17"
+
 postcss-sorting@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/postcss-sorting/-/postcss-sorting-7.0.1.tgz#923b5268451cf2d93ebf8835e17a6537757049a5"
@@ -18784,10 +18799,10 @@ styled-components@^5.2.0:
     shallowequal "^1.1.0"
     supports-color "^5.5.0"
 
-styled-reset@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/styled-reset/-/styled-reset-4.2.3.tgz#6575cd62bf85bdb998fda63203a7c9a85371ce9e"
-  integrity sha512-0Njd9PfnijolnSSjX60V9yo99EQS5WIZCBWc4pABFqk1kRn6SHlVsiBqfYKrnTTOlLKF+tva0k7pnJpCf0hXsg==
+styled-reset@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/styled-reset/-/styled-reset-4.3.4.tgz#87b6f43caa3f83a5f9dc63773c13b8bb71efbe69"
+  integrity sha512-1UmkWmRwSPfzolKleyPjbZdBqkxSXv5ImqTP5WeSjWk0Z7IvEzsrYhrqinZfCg10eM1P6BEtFly8+puQJnN/0A==
 
 stylehacks@^4.0.0:
   version "4.0.3"
@@ -18797,6 +18812,18 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
+
+stylelint-config-idiomatic-order@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-idiomatic-order/-/stylelint-config-idiomatic-order-8.1.0.tgz#7ca7fa92eb79369948dd4977499466c844ace21d"
+  integrity sha512-iTPY6JjbkIdzy+21x3a1xi/tG33zKhLJb6lZl1xg6jZrXjgIYelnRZ5xVtbcEP9rElxZq/Zu1eGthfvI+ri+YQ==
+  dependencies:
+    stylelint-order "^3.1.1"
+
+stylelint-config-prettier@^9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-9.0.3.tgz#0dccebeff359dcc393c9229184408b08964d561c"
+  integrity sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==
 
 stylelint-config-rational-order@^0.1.2:
   version "0.1.2"
@@ -18833,7 +18860,7 @@ stylelint-declaration-strict-value@^1.8.0:
     css-values "^0.1.0"
     shortcss "^0.1.3"
 
-stylelint-order@^2.2.1:
+stylelint-order@^2.0.0, stylelint-order@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-2.2.1.tgz#cd2d4a0d81d91c705f1d275a58487e5ad5aa5828"
   integrity sha512-019KBV9j8qp1MfBjJuotse6MgaZqGVtXMc91GU9MsS9Feb+jYUvUU3Z8XiClqPdqJZQ0ryXQJGg3U3PcEjXwfg==
@@ -18841,6 +18868,15 @@ stylelint-order@^2.2.1:
     lodash "^4.17.10"
     postcss "^7.0.2"
     postcss-sorting "^4.1.0"
+
+stylelint-order@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-3.1.1.tgz#ba9ea6844d1482f97f31204e7c9605c7b792c294"
+  integrity sha512-4gP/r8j/6JGZ/LL41b2sYtQqfwZl4VSqTp7WeIwI67v/OXNQ08dnn64BGXNwAUSgb2+YIvIOxQaMzqMyQMzoyQ==
+  dependencies:
+    lodash "^4.17.15"
+    postcss "^7.0.17"
+    postcss-sorting "^5.0.1"
 
 stylelint-order@^5.0.0:
   version "5.0.0"
@@ -18859,6 +18895,14 @@ stylelint-processor-styled-components@^1.10.0:
     "@babel/traverse" "^7.8.3"
     micromatch "^4.0.2"
     postcss "^7.0.26"
+
+stylelint-rational-order-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/stylelint-rational-order-plugin/-/stylelint-rational-order-plugin-1.0.2.tgz#6b6b38d5668b23da8e03212aa7d321a9e0c92be3"
+  integrity sha512-uv3QKbfvfgwXTb4OZV1vW28UfSGa2LpSIaYRnpQGVFbvNdS/0iqHBmqrDcVJiBXX79B9retBwiHda5ed0tUYTA==
+  dependencies:
+    stylelint "^9.10.1"
+    stylelint-order "^2.0.0"
 
 stylelint-scss@^4.0.0:
   version "4.0.0"
