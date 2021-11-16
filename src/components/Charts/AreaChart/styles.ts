@@ -11,18 +11,18 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
   justify-content: center;
 
   border-radius: ${({ theme }) => theme.border.radius};
-  background-color: ${({ theme: { colors } }) => colors.section};
+  background-color: ${({ theme }) => theme.colors.section};
 
   .recharts-surface {
     padding: ${({ theme }) => theme.offsets.batweenElements};
   }
 
   .recharts-cartesian-axis-line {
-    stroke: ${({ theme: { colors } }) => colors.sectionContent};
+    stroke: ${({ theme }) => theme.colors.sectionContent};
   }
 
   .recharts-text {
-    color: ${({ theme: { colors } }) => colors.sectionContent};
+    color: ${({ theme }) => theme.colors.sectionContent};
     font: ${basicFont};
   }
 
@@ -48,7 +48,7 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
       fill-opacity: 1;
       stroke-width: 2;
 
-      stroke: ${({ theme: { colors } }) => colors.section};
+      stroke: ${({ theme }) => theme.colors.section};
     }
   }
 

@@ -29,7 +29,6 @@ export const Container = styled.div<TWithBasicElementOffsets & { isOpen: boolean
   box-sizing: border-box;
   width: ${({ theme }) => theme.elements.form.height};
   height: ${({ theme }) => theme.elements.form.height};
-
   margin-right: ${withOffsetsRight};
   margin-bottom: ${withOffsetBottom};
   padding: ${({ theme }) => theme.offsets.elementContent};

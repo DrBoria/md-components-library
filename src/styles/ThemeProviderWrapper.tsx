@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import 'react-placeholder/lib/reactPlaceholder.css';
 import styled, { createGlobalStyle, TDefaultTheme, ThemeProvider } from 'styled-components';
 import reset from 'styled-reset';
 

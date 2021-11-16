@@ -58,7 +58,6 @@
     ],
     "camelcase": "error",
     "eqeqeq": ["error", "smart"],
-    "id-match": ["error", "^[A-z]+([A-Z][a-z]+)*$"],
     "no-eval": "error",
     "no-trailing-spaces": "error",
     "no-underscore-dangle": "error",
