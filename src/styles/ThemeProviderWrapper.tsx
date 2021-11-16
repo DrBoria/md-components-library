@@ -33,7 +33,7 @@ const MediaProvider = styled.div`
   `}
 `;
 
-const ResetStyle: FC = createGlobalStyle`
+const ResetStyle = createGlobalStyle`
 ${reset}
   
 html,
