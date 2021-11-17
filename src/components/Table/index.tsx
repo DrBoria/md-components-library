@@ -29,7 +29,7 @@ type TTableContainerProps = {
 
 const TableContainer: FC<TTableContainerProps> = ({ children, headerCols, colsTemplate, pagination, rowsPerPage }) => {
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    rowsPerPage?.changeElementsPerPage(parseInt(event.target.value, 10));
+    rowsPerPage?.changeElementsPerPage(Number.parseInt(event.target.value, 10));
   };
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, newPage: number) => {
     pagination?.changePage(newPage);

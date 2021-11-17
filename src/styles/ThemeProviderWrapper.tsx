@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import styled, { createGlobalStyle, TDefaultTheme, ThemeProvider } from 'styled-components';
-import reset from 'styled-reset';
+import StyledReset from 'styled-reset';
 
 import themes from './baseTheme';
 
@@ -33,7 +33,7 @@ const MediaProvider = styled.div`
 `;
 
 const ResetStyle = createGlobalStyle`
-${reset}
+${StyledReset}
   
 html,
 body {

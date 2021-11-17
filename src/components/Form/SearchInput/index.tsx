@@ -17,8 +17,8 @@ export type TSearchInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 const SearchInput: FC<TSearchInputProps> = ({ id, name, value, onChangeValue, ...props }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const handleChange = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const newValue = e.currentTarget.value;
+    (event: FormEvent<HTMLInputElement>) => {
+      const newValue = event.currentTarget.value;
       onChangeValue(newValue);
     },
     [onChangeValue]
@@ -27,7 +27,7 @@ const SearchInput: FC<TSearchInputProps> = ({ id, name, value, onChangeValue, ..
   const handleOpenSearchInput = () => {
     setIsSearchOpen(!isSearchOpen);
     if (isSearchOpen) {
-      onChangeValue(undefined);
+      onChangeValue();
     }
   };
 

@@ -34,7 +34,7 @@ const Number = styled<any>(Button)`
 const Pagination: FC<TPaginationProps> = ({ pagesCount, currentPage, onChangePage }) => (
   <Container>
     <IoIosArrowBack />
-    {[...Array(pagesCount).keys()].map((pageNumber) => (
+    {[...new Array(pagesCount).keys()].map((pageNumber) => (
       <Number
         onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           onChangePage(event, pageNumber);
