@@ -1,57 +1,53 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type ITextCheckboxProps = {
+type TTextCheckboxProps = {
   name: string;
   id: string;
-  theme: Theme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
 const CheckboxContainer = styled.div`
   display: inline-block;
+
   cursor: pointer;
 `;
 
 const CheckboxInput = styled.input<TWithBasicElementOffsets & TFullWidth>`
-  ${({ theme: { colors, elements, offsets, border } }: { theme: Theme }) => `
-    display: none;
+  display: none;
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 
-    & + label {
-      ${basicFont};
+  &:checked + label {
+    color: ${({ theme }) => theme.colors.highlightedText};
 
-      cursor: pointer;
+    background: ${({ theme }) => theme.colors.highlighted};
+  }
 
-      display: inline-block;
-      height: ${elements.form.height};
-      padding: ${offsets.elementContent};
+  & + label {
+    display: inline-block;
+    height: ${({ theme }) => theme.elements.form.height};
+    padding: ${({ theme }) => theme.offsets.elementContent};
 
-      background: ${colors.overlay};
-      border-radius:${border.radius};
-    }
+    font: ${basicFont};
 
-    & + label:hover {
-      background: ${colors.overlayActive};
-    }
+    background: ${({ theme }) => theme.colors.overlay};
+    border-radius: ${({ theme }) => theme.border.radius};
+    cursor: pointer;
+  }
 
-    &:checked + label {
-      background: ${colors.highlighted};
-      color: ${colors.highlightedText};
-    }
-
-    ${withBasicElementOffsets};
-    ${({ fullWidth }: TFullWidth) => fullWidth && 'width: 100%;'};
-  `}
+  & + label:hover {
+    background: ${({ theme }) => theme.colors.overlayActive};
+  }
 `;
 
-const TextCheckbox: FC<ITextCheckboxProps> = ({ name, id, ...props }) => (
+const TextCheckbox = ({ name, id, ...props }: TTextCheckboxProps) => (
   <CheckboxContainer {...props}>
-    <CheckboxInput id={id} name={name} type="checkbox" />
+    <CheckboxInput id={id} name={name} type='checkbox' />
     <label htmlFor={id}>{name}</label>
   </CheckboxContainer>
 );

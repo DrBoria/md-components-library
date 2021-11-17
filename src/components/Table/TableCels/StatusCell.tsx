@@ -1,21 +1,14 @@
-import React, { FC } from 'react';
-
 import { StyledTextCell } from './styles';
 
-enum IActivityStatus {
-  Active = 'Active',
-  InActive = 'InActive',
-}
-
-type IStatusCellProps = {
-  status: IActivityStatus;
+type TStatusCellProps = {
+  status: 'Active' | 'InActive';
   align?: 'center' | 'left' | 'right';
 };
 
-const StatusCell: FC<IStatusCellProps> = ({ status, align, ...props }) => {
+const StatusCell = ({ status, align, ...props }: TStatusCellProps) => {
   return (
     <StyledTextCell align={align} {...props}>
-      {IActivityStatus[status]}
+      {status}
     </StyledTextCell>
   );
 };

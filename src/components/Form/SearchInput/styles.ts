@@ -1,9 +1,9 @@
-import styled from 'styled-components';
 import { FiX, FiSearch } from 'react-icons/fi';
+import styled from 'styled-components';
 
 import Button from 'components/Button';
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TFullWidth } from 'styles/helpers';
+
+import { TWithBasicElementOffsets, withOffsetBottom, withOffsetsRight } from 'styles/helpers';
 
 export const ButtonWrapper = styled(Button)`
   border: none;
@@ -12,6 +12,7 @@ export const ButtonWrapper = styled(Button)`
 export const SearchIcon = styled(FiSearch)`
   visibility: visible;
   opacity: 1;
+
   transition: visibility 0s, opacity 0.2s linear;
 `;
 
@@ -19,41 +20,31 @@ export const CrossIcon = styled(FiX)`
   display: none;
 `;
 
-export const Container = styled.div<any>`
-  ${({ isOpen, theme: { colors, border, elements, offsets } }: { theme: Theme; isOpen: boolean }) => `
+export const Container = styled.div<TWithBasicElementOffsets & { isOpen: boolean }>`
   position: relative;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-  width: ${elements.form.height};
-  height: ${elements.form.height};
-  padding: ${offsets.elementContent};
+  width: ${({ theme }) => theme.elements.form.height};
+  height: ${({ theme }) => theme.elements.form.height};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
+  padding: ${({ theme }) => theme.offsets.elementContent};
 
-  background-color: ${colors.overlay};
-  border-radius: ${border.radius};
+  background-color: ${({ theme }) => theme.colors.overlay};
+  border-radius: ${({ theme }) => theme.border.radius};
+
   transition: all 0.5s ease;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ${
-    isOpen &&
-    `
-      width: 100%;
-
-      ${CrossIcon} {
-        display: block;
-      }
-      ${SearchIcon} {
-        visibility: hidden;
-        opacity: 0;
-        display: none;
-      }
-    `
+  & {
+    width: ${({ isOpen }) => isOpen && '100%'};
   }
-  `}
-
-  ${withBasicElementOffsets}
-
-  ${({ fullWidth }: TFullWidth) => fullWidth && 'width: 100%;'}
+  ${CrossIcon} {
+    display: ${({ isOpen }) => isOpen && 'block'};
+  }
+  ${SearchIcon} {
+    display: ${({ isOpen }) => isOpen && 'none'};
+  }
 `;

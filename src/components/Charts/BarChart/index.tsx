@@ -1,22 +1,22 @@
-import React, { FC } from 'react';
 import { BarChart as DefaultBarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
-import { PlainText } from 'components/Typography';
+
 import { GraphicsContainer, LegendContainer, LegendRowContainer } from 'components/Charts/styles';
+import { PlainText } from 'components/Typography';
 
-import { Props } from './types';
 import { NameContainer, ColoredDot } from './styles';
+import { TProps } from './types';
 
-const BarChart: FC<Props> = ({ data, width = 300, height = 300 }) => {
+const BarChart = ({ data, width = 300, height = 300 }: TProps) => {
   const COLORS = ['#FF7664', '#3DC694', '#FFAD4F', '#754A89', '#498DF2'];
 
   return (
     <GraphicsContainer>
       <DefaultBarChart width={width} height={height} data={data}>
         {/* Background horizontal and vertical lines */}
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray='3 3' />
 
         {/* X asix annotaion */}
-        <XAxis dataKey="name" />
+        <XAxis dataKey='name' />
 
         {/* Y asix annotaion */}
         <YAxis />
@@ -28,7 +28,7 @@ const BarChart: FC<Props> = ({ data, width = 300, height = 300 }) => {
               dataKey={field.param}
               fill={COLORS[index % COLORS.length]}
             />
-          )),
+          ))
         )}
       </DefaultBarChart>
 

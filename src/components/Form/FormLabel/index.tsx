@@ -1,21 +1,18 @@
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type IFormLabelProps = {
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+
+type TFormLabelProps = {
   htmlFor: string;
-  theme: Theme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const FormLabel = styled.label<IFormLabelProps>`
-  ${({ theme: { colors } }: IFormLabelProps) => `
-      color: ${colors.sectionContent};
-  `}
+const FormLabel = styled.label<TFormLabelProps>`
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 
-  ${withBasicElementOffsets}
-
-  ${({ fullWidth }) => fullWidth && 'width: 100%;'}
+  color: ${({ theme }) => theme.colors.sectionContent};
 `;
 
 export { FormLabel };

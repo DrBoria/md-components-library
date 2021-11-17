@@ -1,0 +1,29 @@
+{
+  "printWidth": 120,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "importOrder": [
+    "@test/",
+    "^@authenticgaming/(.*)$",
+    "@constants",
+    "@services",
+    "@utils",
+    "@helpers",
+    "@redux",
+    "@ducks",
+    "@libs",
+    "@definitions",
+    "@mocks",
+    "@images",
+    "@styles",
+    "@containers",
+    "@components",
+    "[.]",
+    "(.scss)"
+  ],
+  "importOrderSeparation": true
+}

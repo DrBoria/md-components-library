@@ -1,6 +1,4 @@
-import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Theme } from 'styles/baseTheme';
 
 import { ReactComponent as DefaultSpinnerLoader } from './spinner-loader.svg';
 
@@ -15,12 +13,12 @@ const rotate = keyframes`
 `;
 
 const SpinnerLoader = styled(DefaultSpinnerLoader)`
-  animation: ${rotate} 3s linear infinite;
+  color: ${({ theme }) => theme.colors.sectionContent};
 
-  color: ${({ theme: { colors } }: { theme: Theme }) => `${colors.sectionContent}`};
+  animation: ${rotate} 3s linear infinite;
 `;
 
-export const Spinner: FC<any> = () => {
+export const Spinner = () => {
   return <SpinnerLoader />;
 };
 

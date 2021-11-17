@@ -1,18 +1,16 @@
-import React, { FC } from 'react';
-
-import { PlainText } from 'components/Typography';
 import Avatar from 'components/Avatar';
+import { PlainText } from 'components/Typography';
 
 import { OneLineCell } from './styles';
 
-type IBrandCellProps = {
+type TBrandCellProps = {
   text: string;
   src: string;
   alt?: string;
   align?: 'center' | 'left' | 'right';
 };
 
-const BrandCell: FC<IBrandCellProps> = ({ text, src, alt, align, ...props }) => {
+const BrandCell = ({ text, src, alt, align, ...props }: TBrandCellProps) => {
   return (
     <OneLineCell align={align} {...props}>
       <Avatar src={src} alt={alt} />

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { TWithBasicElementOffsets, withBasicElementOffsets } from 'styles/helpers';
+
+import { withOffsetsRight, withOffsetBottom, TWithBasicElementOffsets } from 'styles/helpers';
 
 /* **************************************************************** */
 /* ************************** GRAPHICS **************************** */
@@ -7,23 +8,25 @@ import { TWithBasicElementOffsets, withBasicElementOffsets } from 'styles/helper
 
 export const GraphicsContainer = styled.div<TWithBasicElementOffsets>`
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 
-  ${withBasicElementOffsets}
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;
 
 export const LegendContainer = styled.div<TWithBasicElementOffsets>`
-  ${withBasicElementOffsets}
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;
 
 export const LegendRowContainer = styled.div<TWithBasicElementOffsets>`
   display: flex;
   justify-content: space-between;
-  font-size: 1.1875rem;
-  height: 3rem;
-  margin-left: 2.375rem;
 
-  ${withBasicElementOffsets}
+  height: ${({ theme }) => theme.elements.icons.height};
+
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;

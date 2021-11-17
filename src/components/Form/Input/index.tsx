@@ -1,32 +1,30 @@
-import { basicFont } from 'components/Typography';
 import styled from 'styled-components';
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type IInputProps = {
+import { basicFont } from 'components/Typography';
+
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+
+type TInputProps = {
   name: string;
   id?: string;
   type?: string;
-  theme: Theme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const Input = styled.input<IInputProps>`
-  ${({ theme: { colors, border, elements, offsets } }: IInputProps) => `
-    ${basicFont};
+const Input = styled.input<TInputProps>`
+  display: block;
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  height: ${({ theme }) => theme.elements.form.height};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
+  padding: ${({ theme }) => theme.offsets.elementContent};
 
-    display: block;
-    height: ${elements.form.height};
-    padding: ${offsets.elementContent};
-    border: none;
-    background: ${colors.overlay};
-    border-radius: ${border.radius};
-    color: ${colors.sectionContent};
-  `}
+  color: ${({ theme }) => theme.colors.sectionContent};
+  font: ${basicFont};
 
-  ${withBasicElementOffsets}
-
-  ${({ fullWidth }) => fullWidth && 'width: 100%;'}
+  background: ${({ theme }) => theme.colors.overlay};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
 `;
 
 export { Input };

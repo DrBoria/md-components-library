@@ -1,12 +1,10 @@
-import styled from 'styled-components';
 import { ResponsiveContainer } from 'recharts';
+import styled from 'styled-components';
 
-import { Theme } from 'styles/baseTheme';
+import { TComponentProps } from './types';
 
-import { ComponentProps } from './types';
-
-export const Wrapper = styled(ResponsiveContainer)<ComponentProps>`
-  ${({ theme: { colors } }: { theme: Theme }) => `
+export const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
+  ${({ theme: { colors } }) => `
   display: flex;
   align-items: center;
   justify-content: center;

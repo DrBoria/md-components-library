@@ -1,16 +1,16 @@
-export type Props = {
-  data: Order[];
+export type TProps = {
+  data: TOrder[];
   width?: number;
   height?: number;
 };
 
-type Field = {
+type TField = {
   param: string;
   fill: string;
 };
 
-type Order = {
-  fields: Field[];
+type TOrder = {
+  fields: TField[];
   name: string;
-  [name: string]: Field[] | string | number;
+  [name: string]: TField[] | string | number;
 };

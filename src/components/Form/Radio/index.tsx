@@ -1,46 +1,43 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-type IRadioProps = {
+type TRadioProps = {
   name: string;
   id?: string;
   value: any;
   type: 'radio';
-  theme: Theme;
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const RadioInput = styled.input<IRadioProps>`
-  ${({ theme: { colors, border, elements, offsets } }: IRadioProps) => `
-    ${basicFont};
+const RadioInput = styled.input<TRadioProps>`
+  display: block;
+  height: ${({ theme }) => theme.elements.form.height};
+  padding: ${({ theme }) => theme.offsets.elementContent};
 
-    display: block;
-    height: ${elements.form.height};
-    padding: ${offsets.elementContent};
-    border: none;
-    background: ${colors.overlay};
-    border-radius: ${border.radius};
-    color: ${colors.sectionContent};
-  `}
+  color: ${({ theme }) => theme.colors.sectionContent};
+  font: ${basicFont};
+
+  background: ${({ theme }) => theme.colors.overlay};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
 `;
 
 const RadioContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
   display: flex;
-  height: ${({ theme: { elements } }: { theme: Theme }) => elements.form.height};
   align-items: center;
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  height: ${({ theme }) => theme.elements.form.height};
 
-  ${withBasicElementOffsets};
-  ${({ fullWidth }) => fullWidth && 'width: 100%;'}
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;
 
-const Radio: FC<IRadioProps> = ({ name, id, value, ...props }) => (
+const Radio = ({ name, id = '0', value, ...props }: TRadioProps) => (
   <RadioContainer {...props}>
-    <RadioInput type="radio" id={id} name={name} value={value} />
+    <RadioInput type='radio' id={id} name={name} value={value} />
   </RadioContainer>
 );
 

@@ -1,8 +1,8 @@
-export type Props = {
-  data: Order[];
+export type TProps = {
+  data: TOrder[];
 };
 
-type Order = {
+type TOrder = {
   name: string;
   totalSales: number;
 };

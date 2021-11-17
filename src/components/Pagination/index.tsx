@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import styled from 'styled-components';
 
-import { Theme } from 'styles/baseTheme';
-import { withBasicElementOffsets, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 import Button from 'components/Button';
+
+import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
 type TPaginationProps = {
   pagesCount: number;
@@ -13,36 +12,28 @@ type TPaginationProps = {
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const Container = styled.div`
-  ${({ theme: { elements, offsets } }: { theme: Theme }) => `
-    height: ${elements.form.height};
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    grid-gap: ${offsets.batweenElements}; 
-
-    ${withBasicElementOffsets};
-    ${({ fullWidth }: TFullWidth) => fullWidth && 'width: 100%;'};
-  `}
+const Container = styled.div<TFullWidth>`
+  display: flex;
+  grid-gap: ${({ theme }) => theme.offsets.batweenElements};
+  align-items: center;
+  justify-content: center;
+  width: ${({ fullWidth }) => fullWidth && '100%'};
+  height: ${({ theme }) => theme.elements.form.height};
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
 `;
 
-const Number = styled(Button)`
-  ${({ active, theme: { colors } }: { theme: Theme; active: boolean }) => `
-    border: none;
-    background: ${colors.overlay};
-    
-    font-weight: 700;
+const Number = styled<any>(Button)`
+  font-weight: 700;
 
-    ${active ? `background: ${colors.overlayActive};` : ''}
-  `}
+  background: ${({ active, theme }) => (active ? theme.colors.overlayActive : theme.colors.overlay)};
+  border: none;
 `;
 
-const Pagination: FC<TPaginationProps> = ({ pagesCount, currentPage, onChangePage }) => (
+const Pagination = ({ pagesCount, currentPage, onChangePage }: TPaginationProps) => (
   <Container>
     <IoIosArrowBack />
-    {[...Array(pagesCount).keys()].map((pageNumber) => (
+    {[...new Array(pagesCount).keys()].map((pageNumber) => (
       <Number
         onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           onChangePage(event, pageNumber);

@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import { ReactNode } from 'react';
 
-import { SubTitle } from 'components/Typography';
-import Pagination from 'components/Pagination';
 import { Select, TOption } from 'components/Form';
+import Pagination from 'components/Pagination';
+import { SubTitle } from 'components/Typography';
 
-import { Grid, PaginationContainer } from './styles';
 import { StyledHeaderCell } from './TableCels/styles';
+import { Grid, PaginationContainer } from './styles';
 
-type ITableContainerProps = {
+type TTableContainerProps = {
   pagination?: {
     current: number;
     totalPages: number;
@@ -25,11 +25,12 @@ type ITableContainerProps = {
     isSortable?: boolean;
   }[];
   colsTemplate: string;
+  children: ReactNode;
 };
 
-const TableContainer: FC<ITableContainerProps> = ({ children, headerCols, colsTemplate, pagination, rowsPerPage }) => {
+const TableContainer = ({ children, headerCols, colsTemplate, pagination, rowsPerPage }: TTableContainerProps) => {
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    rowsPerPage?.changeElementsPerPage(parseInt(event.target.value, 10));
+    rowsPerPage?.changeElementsPerPage(Number.parseInt(event.target.value, 10));
   };
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, newPage: number) => {
     pagination?.changePage(newPage);
@@ -63,8 +64,8 @@ const TableContainer: FC<ITableContainerProps> = ({ children, headerCols, colsTe
         {/* Dropdawn for selction rows per page */}
         {rowsPerPage && (
           <Select
-            name="rowsPerPage"
-            id="rowsPerPage"
+            name='rowsPerPage'
+            id='rowsPerPage'
             value={rowsPerPage.options[0]}
             options={rowsPerPage.options}
             onChange={handleChangeRowsPerPage}

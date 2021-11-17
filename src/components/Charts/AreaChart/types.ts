@@ -1,4 +1,4 @@
-export type Props = {
+export type TProps = {
   data: { xAxis: string; yAxis: number }[];
   referenceLine?: number;
   variant?: 'green' | 'red' | 'yellow';
@@ -7,7 +7,7 @@ export type Props = {
   yAxisTooltipName: string;
 };
 
-export type ComponentProps = {
-  $variant: Props['variant'];
-  $referenceLine: Props['referenceLine'];
+export type TComponentProps = {
+  variant: TProps['variant'];
+  referenceLine: TProps['referenceLine'];
 };

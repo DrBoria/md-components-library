@@ -1,4 +1,4 @@
-export type Props = {
+export type TProps = {
   data: any[];
   referenceLine?: number;
   variant?: 'green' | 'red' | 'yellow';
@@ -6,7 +6,7 @@ export type Props = {
   title: string;
 };
 
-export type ComponentProps = {
-  $variant: Props['variant'];
-  $referenceLine: Props['referenceLine'];
+export type TComponentProps = {
+  variant: TProps['variant'];
+  referenceLine: TProps['referenceLine'];
 };

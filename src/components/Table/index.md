@@ -5,9 +5,7 @@ import { Fragment } from 'react';
 
 import TableContainer from 'components/Table';
 import { TextDisplayCell, BoldTextDisplayCell, StatusCell, NavigationCell } from 'components/Table/TableCels';
-
-import withPagination from 'utils/withPagination';
-
+import WithPagination from 'utils/withPagination';
 const ordersRows = [
   { text: 'Order Id' },
   { text: 'Client Name' },
@@ -15,18 +13,10 @@ const ordersRows = [
   { text: 'Status' },
   { text: 'Price' },
 ];
-
 const content = [
   {
     id: 'O1',
-    items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 }],
     service: 'Doordash',
     name: 'Jill Jeffries',
     total: 15.75,
@@ -36,24 +26,9 @@ const content = [
   {
     id: 'O2',
     items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Jill Jeffries',
@@ -63,14 +38,7 @@ const content = [
   },
   {
     id: 'O3',
-    items: [
-      {
-        name: 'Sal',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Sal', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 }],
     service: 'Doordash',
     name: 'Jake Smith',
     total: 10,
@@ -80,18 +48,8 @@ const content = [
   {
     id: 'O4',
     items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 31.5,
-        quantity: 2,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 31.5, quantity: 2 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Michelle Jordan',
@@ -102,18 +60,8 @@ const content = [
   {
     id: 'O5',
     items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 13.6,
-        quantity: 2,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 13.6, quantity: 2 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Joe Jacobs',
@@ -124,18 +72,8 @@ const content = [
   {
     id: 'O6',
     items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
     ],
     service: 'Doordash',
     name: 'Jack Wayne',
@@ -146,30 +84,10 @@ const content = [
   {
     id: 'O7',
     items: [
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 10.4,
-        quantity: 2,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 10.4, quantity: 2 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Jessica Wayne',
@@ -180,30 +98,10 @@ const content = [
   {
     id: 'O8',
     items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Jill Winters',
@@ -213,14 +111,7 @@ const content = [
   },
   {
     id: 'O9',
-    items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 }],
     service: 'Postmates',
     name: 'Jill Smith',
     total: 15.75,
@@ -229,14 +120,7 @@ const content = [
   },
   {
     id: 'O10',
-    items: [
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 }],
     service: 'Postmates',
     name: 'Michelle Cooper',
     total: 1.25,
@@ -246,24 +130,9 @@ const content = [
   {
     id: 'O11',
     items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
     ],
     service: 'Doordash',
     name: 'Jessica Smith',
@@ -274,18 +143,8 @@ const content = [
   {
     id: 'O12',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Michael Winters',
@@ -296,18 +155,8 @@ const content = [
   {
     id: 'O13',
     items: [
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Michelle Jefferson',
@@ -318,18 +167,8 @@ const content = [
   {
     id: 'O14',
     items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
     ],
     service: 'Grubhub',
     name: 'Jane Jeffries',
@@ -340,24 +179,9 @@ const content = [
   {
     id: 'O15',
     items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
     ],
     service: 'Grubhub',
     name: 'Joe Williams',
@@ -368,18 +192,8 @@ const content = [
   {
     id: 'O16',
     items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 30,
-        quantity: 3,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 30, quantity: 3 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Joe Jordan',
@@ -390,24 +204,9 @@ const content = [
   {
     id: 'O17',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 35.5,
-        quantity: 2,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 35.5, quantity: 2 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Joe Smith',
@@ -418,24 +217,9 @@ const content = [
   {
     id: 'O18',
     items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 31.5,
-        quantity: 2,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 31.5, quantity: 2 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Jack Winters',
@@ -445,14 +229,7 @@ const content = [
   },
   {
     id: 'O19',
-    items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 }],
     service: 'Postmates',
     name: 'Paul Wayne',
     total: 14.4,
@@ -461,14 +238,7 @@ const content = [
   },
   {
     id: 'O20',
-    items: [
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 }],
     service: 'UberEats',
     name: 'Joe Cooper',
     total: 5.2,
@@ -478,24 +248,9 @@ const content = [
   {
     id: 'O21',
     items: [
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 10.4,
-        quantity: 2,
-      },
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 10.4, quantity: 2 },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Jake Jordan',
@@ -506,24 +261,9 @@ const content = [
   {
     id: 'O22',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Jessica Cooper',
@@ -534,36 +274,11 @@ const content = [
   {
     id: 'O23',
     items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Jill Smithers',
@@ -573,14 +288,7 @@ const content = [
   },
   {
     id: 'O24',
-    items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 }],
     service: 'Postmates',
     name: 'Jack Winters',
     total: 17.75,
@@ -589,14 +297,7 @@ const content = [
   },
   {
     id: 'O25',
-    items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 }],
     service: 'Postmates',
     name: 'Jack Smith',
     total: 17.75,
@@ -605,14 +306,7 @@ const content = [
   },
   {
     id: 'O26',
-    items: [
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 }],
     service: 'Doordash',
     name: 'Jake Jordan',
     total: 5.2,
@@ -621,14 +315,7 @@ const content = [
   },
   {
     id: 'O27',
-    items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 13.6,
-        quantity: 2,
-      },
-    ],
+    items: [{ name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 13.6, quantity: 2 }],
     service: 'UberEats',
     name: 'George Jefferson',
     total: 13.6,
@@ -638,30 +325,10 @@ const content = [
   {
     id: 'O28',
     items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 10.4,
-        quantity: 2,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 10.4, quantity: 2 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Paul Wayne',
@@ -672,36 +339,11 @@ const content = [
   {
     id: 'O29',
     items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Jane Jacobs',
@@ -712,24 +354,9 @@ const content = [
   {
     id: 'O30',
     items: [
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Paul Jeffries',
@@ -740,24 +367,9 @@ const content = [
   {
     id: 'O31',
     items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 10.4,
-        quantity: 2,
-      },
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 10.4, quantity: 2 },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Jill Wayne',
@@ -768,18 +380,8 @@ const content = [
   {
     id: 'O32',
     items: [
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Michelle Smith',
@@ -789,14 +391,7 @@ const content = [
   },
   {
     id: 'O33',
-    items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 }],
     service: 'Postmates',
     name: 'George Jefferson',
     total: 10,
@@ -805,14 +400,7 @@ const content = [
   },
   {
     id: 'O34',
-    items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 28.8,
-        quantity: 2,
-      },
-    ],
+    items: [{ name: 'Pasta', description: 'Delicious, cheesy pasta', price: 28.8, quantity: 2 }],
     service: 'Grubhub',
     name: 'Jessica Smith',
     total: 28.8,
@@ -822,24 +410,9 @@ const content = [
   {
     id: 'O35',
     items: [
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Jake Williams',
@@ -850,30 +423,10 @@ const content = [
   {
     id: 'O36',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 28.8,
-        quantity: 2,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 28.8, quantity: 2 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Joe Jordan',
@@ -883,14 +436,7 @@ const content = [
   },
   {
     id: 'O37',
-    items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 43.2,
-        quantity: 3,
-      },
-    ],
+    items: [{ name: 'Pasta', description: 'Delicious, cheesy pasta', price: 43.2, quantity: 3 }],
     service: 'Doordash',
     name: 'Jack Jefferson',
     total: 43.2,
@@ -899,14 +445,7 @@ const content = [
   },
   {
     id: 'O38',
-    items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 }],
     service: 'Postmates',
     name: 'Jessica Jordan',
     total: 17.75,
@@ -916,30 +455,10 @@ const content = [
   {
     id: 'O39',
     items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Jake Wayne',
@@ -950,30 +469,10 @@ const content = [
   {
     id: 'O40',
     items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Joe Wayne',
@@ -984,30 +483,10 @@ const content = [
   {
     id: 'O41',
     items: [
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 2.5,
-        quantity: 2,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 2.5, quantity: 2 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Paul Smith',
@@ -1018,24 +497,9 @@ const content = [
   {
     id: 'O42',
     items: [
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 20,
-        quantity: 2,
-      },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 20, quantity: 2 },
     ],
     service: 'Postmates',
     name: 'Michelle Smith',
@@ -1046,18 +510,8 @@ const content = [
   {
     id: 'O43',
     items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 1.25,
-        quantity: 1,
-      },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 1.25, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Jane Jordan',
@@ -1068,30 +522,10 @@ const content = [
   {
     id: 'O44',
     items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
     ],
     service: 'Postmates',
     name: 'Michelle Jordan',
@@ -1101,14 +535,7 @@ const content = [
   },
   {
     id: 'O45',
-    items: [
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-    ],
+    items: [{ name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 }],
     service: 'Postmates',
     name: 'Jill Williams',
     total: 10,
@@ -1118,18 +545,8 @@ const content = [
   {
     id: 'O46',
     items: [
-      {
-        name: 'Soda',
-        description: 'Carbonated soda that always hits the spot',
-        price: 3.75,
-        quantity: 3,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 13.6,
-        quantity: 2,
-      },
+      { name: 'Soda', description: 'Carbonated soda that always hits the spot', price: 3.75, quantity: 3 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 13.6, quantity: 2 },
     ],
     service: 'Postmates',
     name: 'Jack Jeffries',
@@ -1140,24 +557,9 @@ const content = [
   {
     id: 'O47',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 14.4,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 14.4, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'George Jordan',
@@ -1168,30 +570,10 @@ const content = [
   {
     id: 'O48',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Pasta',
-        description: 'Delicious, cheesy pasta',
-        price: 28.8,
-        quantity: 2,
-      },
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Salad',
-        description: 'Healthy salad for a healthy life',
-        price: 10,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Pasta', description: 'Delicious, cheesy pasta', price: 28.8, quantity: 2 },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Salad', description: 'Healthy salad for a healthy life', price: 10, quantity: 1 },
     ],
     service: 'UberEats',
     name: 'Jake Wayne',
@@ -1202,18 +584,8 @@ const content = [
   {
     id: 'O49',
     items: [
-      {
-        name: 'Mozzerella Sticks',
-        description: 'Fried to perfection!',
-        price: 6.8,
-        quantity: 1,
-      },
-      {
-        name: 'Cheese Pizza',
-        description: 'Super cheesy pizza',
-        price: 15.75,
-        quantity: 1,
-      },
+      { name: 'Mozzerella Sticks', description: 'Fried to perfection!', price: 6.8, quantity: 1 },
+      { name: 'Cheese Pizza', description: 'Super cheesy pizza', price: 15.75, quantity: 1 },
     ],
     service: 'Doordash',
     name: 'Jack Smith',
@@ -1224,18 +596,8 @@ const content = [
   {
     id: 'O50',
     items: [
-      {
-        name: 'Pepperoni Pizza',
-        description: 'Delectable pepperoni pizza',
-        price: 17.75,
-        quantity: 1,
-      },
-      {
-        name: 'Beer',
-        description: 'Refreshing and fulfilling',
-        price: 5.2,
-        quantity: 1,
-      },
+      { name: 'Pepperoni Pizza', description: 'Delectable pepperoni pizza', price: 17.75, quantity: 1 },
+      { name: 'Beer', description: 'Refreshing and fulfilling', price: 5.2, quantity: 1 },
     ],
     service: 'Grubhub',
     name: 'Jane Jeffries',
@@ -1244,15 +606,10 @@ const content = [
     userId: '1',
   },
 ];
-
 <TableContainer
-  colsTemplate="1fr 1fr 1fr 1fr 1fr"
+  colsTemplate='1fr 1fr 1fr 1fr 1fr'
   headerCols={ordersRows}
-  pagination={{
-    current: 2,
-    totalPages: 10,
-    changePage: console.log,
-  }}
+  pagination={{ current: 2, totalPages: 10, changePage: console.log }}
   rowsPerPage={{
     options: [
       { value: 10, text: 10 },
@@ -1262,7 +619,7 @@ const content = [
     changeElementsPerPage: console.log,
   }}
 >
-  {withPagination(content, 10, 0).map((order) => (
+  {WithPagination(content, 10, 0).map((order) => (
     <Fragment key={order.id}>
       {/* Order ID */}
       <NavigationCell text={order.id} link={`/${order.id}`} />
