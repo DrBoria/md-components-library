@@ -1,5 +1,3 @@
-import React, { FC } from 'react';
-
 import { PlainText } from 'components/Typography';
 
 import { StyledTextCell } from './styles';
@@ -10,7 +8,7 @@ type TNavigationCellProps = {
   align?: 'center' | 'left' | 'right';
 };
 
-const NavigationCell: FC<TNavigationCellProps> = ({ text, link, align, ...props }) => {
+const NavigationCell = ({ text, link, align, ...props }: TNavigationCellProps) => {
   return (
     <StyledTextCell align={align} {...props}>
       <PlainText>

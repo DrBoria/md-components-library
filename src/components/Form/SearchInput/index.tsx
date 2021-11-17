@@ -1,4 +1,4 @@
-import React, { FC, useCallback, FormEvent, useState } from 'react';
+import { useCallback, FormEvent, useState } from 'react';
 
 import { Input } from 'components/Form/Input';
 
@@ -14,7 +14,7 @@ export type TSearchInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 } & TWithBasicElementOffsets &
   TFullWidth;
 
-const SearchInput: FC<TSearchInputProps> = ({ id, name, value, onChangeValue, ...props }) => {
+const SearchInput = ({ id, name, value, onChangeValue, ...props }: TSearchInputProps) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const handleChange = useCallback(
     (event: FormEvent<HTMLInputElement>) => {

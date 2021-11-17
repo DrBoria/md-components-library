@@ -12,6 +12,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
   ],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json'],
@@ -21,81 +22,36 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'prettier'],
+  ignorePatterns: ['react-app-env.d.ts'],
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', 'd.ts', 'spec.ts', 'spec.tsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
       'babel-module': {},
       typescript: {},
     },
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', 'spec.ts', 'spec.tsx', 'd.ts'],
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', 'spec.ts', 'spec.tsx', 'd.ts'],
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     react: {
       version: 'detect',
     },
   },
   rules: {
-    'react/jsx-props-no-spreading': 0,
+    // React features
+    'react/react-in-jsx-scope': 0,
     'react/require-default-props': 0,
-    'react/no-array-index-key': 0,
+    'react/jsx-props-no-spreading': 0,
     'react/jsx-one-expression-per-line': 0,
-    'spaced-comment': 0,
-    'no-tabs': 'error',
+    'react/no-array-index-key': 0,
+
+    // Declarations
     '@typescript-eslint/no-use-before-define': ['error', { functions: true, classes: true, variables: true }],
-    indent: 'off',
-    '@typescript-eslint/quotes': ['error', 'single'],
-    '@typescript-eslint/semi': ['error', 'always'],
-    '@typescript-eslint/member-delimiter-style': [
-      'error',
-      {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false,
-        },
-      },
-    ],
-    camelcase: 'error',
-    eqeqeq: ['error', 'smart'],
-    'no-eval': 'error',
-    'no-trailing-spaces': 'error',
     'no-underscore-dangle': 'error',
-    'comma-spacing': ['error', { before: false, after: true }],
-    'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    'no-unsafe-finally': 'error',
-    'space-before-function-paren': 'error',
-    'no-shadow': 'off',
-    '@typescript-eslint/no-loop-func': ['error'],
-    '@typescript-eslint/no-redeclare': ['error'],
-    '@typescript-eslint/no-misused-promises': ['error'],
-    '@typescript-eslint/no-unused-vars': ['error'],
     'no-var': 'error',
-    complexity: ['error', 6],
-    '@typescript-eslint/naming-convention': [
-      'error',
-      { selector: 'variableLike', format: ['camelCase', 'UPPER_CASE'] },
-      { selector: 'variable', modifiers: ['destructured'], format: ['camelCase'] },
-      { selector: 'variable', modifiers: ['global'], format: ['camelCase', 'PascalCase'] },
-      { selector: 'variable', modifiers: ['global'], types: ['function'], format: ['PascalCase'] },
-      { selector: 'function', modifiers: ['global'], format: ['PascalCase'] },
-      { selector: 'typeLike', prefix: ['T'], format: ['PascalCase'] },
-    ],
     'prefer-const': ['error'],
-    '@typescript-eslint/no-shadow': ['error'],
-    'import/prefer-default-export': 0,
-    'import/no-unresolved': ['error'],
-    'import/no-extraneous-dependencies': ['error'],
-    'import/named': 0, // Cause of styled-components theme declaration in baseTheme.ts
-    // Unicorn
-    'unicorn/prefer-export-from': 0, // Conflict with types export
-    'unicorn/no-new-array': 0,
     'unicorn/filename-case': [
       'error',
       {
@@ -115,5 +71,45 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      { selector: 'variableLike', format: ['camelCase', 'UPPER_CASE'] },
+      { selector: 'variable', modifiers: ['destructured'], format: ['camelCase'] },
+      { selector: 'variable', modifiers: ['global'], format: ['camelCase', 'PascalCase'] },
+      { selector: 'variable', modifiers: ['global'], types: ['function'], format: ['PascalCase'] },
+      { selector: 'function', modifiers: ['global'], format: ['PascalCase'] },
+      { selector: 'typeLike', prefix: ['T'], format: ['PascalCase'] },
+    ],
+
+    // Spaces & Delimeters
+    '@typescript-eslint/semi': ['error', 'always'],
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false,
+        },
+      },
+    ],
+    'no-tabs': 'error',
+    'key-spacing': ['error', { align: 'value' }],
+
+    // Imports
+    'import/prefer-default-export': 0,
+    'import/no-unresolved': ['error'],
+    'import/named': 0, // Cause of styled-components theme declaration in baseTheme.ts
+    'unicorn/prefer-export-from': 0, // Conflict with types export
+
+    // Other
+    eqeqeq: ['error', 'smart'],
+    'no-eval': 'error',
+    'no-unsafe-finally': 'error',
+    complexity: ['error', 6],
+    'unicorn/no-new-array': 0,
   },
 };

@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
@@ -46,7 +45,7 @@ const CheckboxInput = styled.input<TWithBasicElementOffsets & TFullWidth>`
   }
 `;
 
-const TextCheckbox: FC<TTextCheckboxProps> = ({ name, id, ...props }) => (
+const TextCheckbox = ({ name, id, ...props }: TTextCheckboxProps) => (
   <CheckboxContainer {...props}>
     <CheckboxInput id={id} name={name} type='checkbox' />
     <label htmlFor={id}>{name}</label>

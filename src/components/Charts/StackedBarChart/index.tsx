@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
 import { BarChart, Bar, XAxis, YAxis } from 'recharts';
 
 import { Wrapper } from './styles';
 import { TProps } from './types';
 
-const StackedBarChart: FC<TProps> = ({ data, variant, referenceLine, ...props }) => {
+const StackedBarChart = ({ data, variant, referenceLine, ...props }: TProps) => {
   return (
     <Wrapper variant={variant} referenceLine={referenceLine} {...props}>
       <BarChart width={500} height={300} data={data} layout='vertical'>

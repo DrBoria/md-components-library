@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
@@ -12,7 +11,6 @@ type TSelectProps = {
   name: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   id: string;
-  type?: string;
   value: any;
   defaultText?: string;
   options: TOption[];
@@ -72,9 +70,9 @@ const Label = styled.label`
   height: ${({ theme }) => `calc(${theme.elements.form.height} - ${theme.offsets.elementContent} * 2)`};
 `;
 
-const Select: FC<TSelectProps> = ({ name, id, options, defaultText = 'Choose goal', onChange }) => (
+const Select = ({ name, id, options, value = '0', defaultText = 'Choose goal', onChange }: TSelectProps) => (
   <SelectContainer>
-    <SelectInput id={id} name={name} defaultValue='0' required onChange={onChange}>
+    <SelectInput id={id} name={name} defaultValue={value} required onChange={onChange}>
       <Option disabled value='0'>
         {defaultText}
       </Option>

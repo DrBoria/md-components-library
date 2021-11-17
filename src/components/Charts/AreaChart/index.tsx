@@ -1,10 +1,10 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, Area, AreaChart, ReferenceLine, Label } from 'recharts';
 
 import Wrapper from './styles';
 import { TProps } from './types';
 
-const LineGraphic: FC<TProps> = ({
+const LineGraphic = ({
   data,
   referenceLine,
   variant,
@@ -12,7 +12,7 @@ const LineGraphic: FC<TProps> = ({
   hideAxisX = false,
   yAxisTooltipName,
   ...props
-}) => {
+}: TProps) => {
   return (
     <Wrapper variant={variant} referenceLine={referenceLine} {...props}>
       <AreaChart data={data}>

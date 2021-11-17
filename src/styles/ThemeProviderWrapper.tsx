@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { useState, ReactNode } from 'react';
 import styled, { createGlobalStyle, TDefaultTheme, ThemeProvider } from 'styled-components';
 import StyledReset from 'styled-reset';
 
@@ -46,7 +46,7 @@ body {
 }
 `;
 
-const ThemeProviderWrapper: FC<any> = ({ children }) => {
+const ThemeProviderWrapper = ({ children }: { children: ReactNode }) => {
   const [theme] = useState<TDefaultTheme>(themes);
 
   return (

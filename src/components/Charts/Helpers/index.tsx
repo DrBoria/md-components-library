@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { YAxisContainer } from './styles';
 
 const YAxis = () => {

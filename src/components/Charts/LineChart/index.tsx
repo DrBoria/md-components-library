@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line } from 'recharts';
 
 import YAxisMinMax from 'components/Charts/Helpers';
@@ -8,7 +8,7 @@ import { Container } from '../Helpers/styles';
 import { Wrapper } from './styles';
 import { TProps } from './types';
 
-const LineGraphic: FC<TProps> = ({ data, referenceLine, variant, title, ...props }) => {
+const LineGraphic = ({ data, referenceLine, variant, title, ...props }: TProps) => {
   return (
     <Container>
       <YAxisMinMax />
@@ -19,9 +19,9 @@ const LineGraphic: FC<TProps> = ({ data, referenceLine, variant, title, ...props
           height={300}
           data={data}
           margin={{
-            top: 5,
-            right: 30,
-            left: 20,
+            top:    5,
+            right:  30,
+            left:   20,
             bottom: 5,
           }}
         >

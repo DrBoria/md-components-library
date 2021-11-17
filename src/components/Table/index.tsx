@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { ReactNode } from 'react';
 
 import { Select, TOption } from 'components/Form';
 import Pagination from 'components/Pagination';
@@ -25,9 +25,10 @@ type TTableContainerProps = {
     isSortable?: boolean;
   }[];
   colsTemplate: string;
+  children: ReactNode;
 };
 
-const TableContainer: FC<TTableContainerProps> = ({ children, headerCols, colsTemplate, pagination, rowsPerPage }) => {
+const TableContainer = ({ children, headerCols, colsTemplate, pagination, rowsPerPage }: TTableContainerProps) => {
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     rowsPerPage?.changeElementsPerPage(Number.parseInt(event.target.value, 10));
   };

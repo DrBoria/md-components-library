@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
@@ -30,6 +29,6 @@ const SubmitInput = styled.input<TSubmitProps>`
   cursor: pointer;
 `;
 
-const Submit: FC<TSubmitProps> = (props) => <SubmitInput {...props} type='submit' />;
+const Submit = (props: TSubmitProps) => <SubmitInput {...props} type='submit' />;
 
 export { Submit };

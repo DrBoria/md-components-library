@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { TDefaultTheme, ThemeProvider } from 'styled-components';
 
 import Button from 'components/Button';
@@ -8,12 +7,14 @@ import { dark } from 'styles/themes';
 
 import { TitleSection, Column, IntroSection } from './Intro.styles';
 
-const Intro: FC<any> = () => (
+const Intro = () => (
   <ThemeProvider theme={{ colors: dark } as TDefaultTheme}>
     <IntroSection>
       <Column>
         <TitleSection>
-          We <Highlighted>design</Highlighted> & <Highlighted>develop</Highlighted> robust solutions for your products
+          We
+          <Highlighted>design</Highlighted>&<Highlighted>develop</Highlighted>
+          robust solutions for your products
         </TitleSection>
         <Button>MAKE ORDER</Button>
       </Column>

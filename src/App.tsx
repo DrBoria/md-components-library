@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Header from 'sections/Header';
 import Intro from 'sections/Intro';
 
@@ -7,24 +5,24 @@ import ThemeProviderWrapper from 'styles/ThemeProviderWrapper';
 
 const menuFields = [
   {
-    id: '1',
+    id:    '1',
     title: 'title',
-    url: 'url',
+    url:   'url',
   },
   {
-    id: '2',
+    id:    '2',
     title: 'title',
-    url: 'url',
+    url:   'url',
   },
   {
-    id: '3',
+    id:    '3',
     title: 'title',
-    url: 'url',
+    url:   'url',
   },
   {
-    id: '4',
+    id:    '4',
     title: 'title',
-    url: 'url',
+    url:   'url',
   },
 ];
 

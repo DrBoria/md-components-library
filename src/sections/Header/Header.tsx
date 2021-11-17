@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { TDefaultTheme, ThemeProvider } from 'styled-components';
 
 import Button from 'components/Button';
@@ -17,7 +16,7 @@ export type THeaderProps = {
   menu: TMenu[];
 };
 
-const Header: FC<THeaderProps> = ({ menu }) => (
+const Header = ({ menu }: THeaderProps) => (
   <ThemeProvider theme={{ colors: dark } as TDefaultTheme}>
     <HeaderSection>
       {menu.map((field, index) => (

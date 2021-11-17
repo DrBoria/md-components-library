@@ -12,22 +12,22 @@ export const basicFont = css`
 
 const sizes = {
   PlainText: {
-    fontSize: '1.1rem;',
+    fontSize:   '1.1rem;',
     lineHeight: '1.5rem;',
   },
 
   SubTitle: {
-    fontSize: '1.3rem;',
+    fontSize:   '1.3rem;',
     lineHeight: '1.8rem;',
   },
 
   SectionTitle: {
-    fontSize: '1.6rem;',
+    fontSize:   '1.6rem;',
     lineHeight: '2rem;',
   },
 
   PageTitle: {
-    fontSize: '2.5rem;',
+    fontSize:   '2.5rem;',
     lineHeight: '3rem;',
   },
 };

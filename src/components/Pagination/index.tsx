@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import styled from 'styled-components';
 
@@ -31,7 +30,7 @@ const Number = styled<any>(Button)`
   border: none;
 `;
 
-const Pagination: FC<TPaginationProps> = ({ pagesCount, currentPage, onChangePage }) => (
+const Pagination = ({ pagesCount, currentPage, onChangePage }: TPaginationProps) => (
   <Container>
     <IoIosArrowBack />
     {[...new Array(pagesCount).keys()].map((pageNumber) => (

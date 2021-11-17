@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { basicFont } from 'components/Typography';
@@ -36,7 +35,7 @@ const RadioContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
   margin-bottom: ${withOffsetBottom};
 `;
 
-const Radio: FC<TRadioProps> = ({ name, id, value, ...props }) => (
+const Radio = ({ name, id = '0', value, ...props }: TRadioProps) => (
   <RadioContainer {...props}>
     <RadioInput type='radio' id={id} name={name} value={value} />
   </RadioContainer>

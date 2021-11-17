@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { ReactComponent as DefaultSpinnerLoader } from './spinner-loader.svg';
@@ -19,7 +18,7 @@ const SpinnerLoader = styled(DefaultSpinnerLoader)`
   animation: ${rotate} 3s linear infinite;
 `;
 
-export const Spinner: FC<any> = () => {
+export const Spinner = () => {
   return <SpinnerLoader />;
 };
 

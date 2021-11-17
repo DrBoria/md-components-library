@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { PieChart as DefaultPieChart, Cell, Pie } from 'recharts';
 
 import { GraphicsContainer, LegendContainer, LegendRowContainer } from 'components/Charts/styles';
@@ -7,7 +6,7 @@ import { PlainText } from 'components/Typography';
 import { NameContainer, ColoredDot } from './styles';
 import { TProps } from './types';
 
-const PieChart: FC<TProps> = ({ data }) => {
+const PieChart = ({ data }: TProps) => {
   const COLORS = ['#FF7664', '#3DC694', '#FFAD4F', '#754A89', '#498DF2'];
 
   return (
