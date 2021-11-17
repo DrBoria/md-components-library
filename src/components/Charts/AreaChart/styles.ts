@@ -3,7 +3,82 @@ import styled, { css } from 'styled-components';
 
 import { basicFont } from 'components/Typography';
 
-import { TComponentProps } from './types';
+import { TComponentProps, TProps } from './types';
+
+const Variants = (variant: TProps['variant']) => {
+  switch (variant) {
+    case 'green':
+      return css`
+        ${({ theme: { colors } }) => `
+          .recharts-reference-line line {
+            stroke: ${colors.sectionContent};
+          }
+          circle {
+            :first-child,
+            :last-child {
+              fill:  ${colors.sectionContent};
+            }
+          }
+          .recharts-layer path {
+            :last-child {
+              stroke:  ${colors.sectionContent};
+            }
+            :first-child {
+              fill:  ${colors.sectionContent};
+            }
+          }
+          `}
+      `;
+    case 'red':
+      return css`
+        ${({ theme: { colors } }) => `
+
+          .recharts-reference-line line {
+            stroke: ${colors.sectionContent};
+          }
+          circle {
+            :first-child,
+            :last-child {
+              fill: ${colors.sectionContent};
+            }
+          }
+          .recharts-layer path {
+            :last-child {
+              stroke: ${colors.sectionContent};
+            }
+            :first-child {
+              fill: ${colors.sectionContent};
+            }
+          }
+          `}
+      `;
+    case 'yellow':
+    default:
+      return css`
+        ${({ theme: { colors } }) => `
+
+        .recharts-reference-line line {
+          stroke: ${colors.highlighted};
+        }
+        circle {
+          :first-child,
+          :last-child {
+            fill: ${colors.highlighted};
+          }
+        }
+        .recharts-layer path {
+          :last-child {
+            stroke: ${colors.highlighted};
+          }
+          :first-child {
+            fill: ${colors.highlighted};
+          }
+        }
+        }
+        `}
+      `;
+  }
+};
 
 const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
   display: flex;
@@ -56,80 +131,7 @@ const Wrapper = styled(ResponsiveContainer)<TComponentProps>`
     stroke-width: 0.25rem;
   }
 
-  ${({ variant }) => {
-    switch (variant) {
-      case 'green':
-        return css`
-          ${({ theme: { colors } }) => `
-          .recharts-reference-line line {
-            stroke: ${colors.sectionContent};
-          }
-          circle {
-            :first-child,
-            :last-child {
-              fill:  ${colors.sectionContent};
-            }
-          }
-          .recharts-layer path {
-            :last-child {
-              stroke:  ${colors.sectionContent};
-            }
-            :first-child {
-              fill:  ${colors.sectionContent};
-            }
-          }
-          `}
-        `;
-      case 'red':
-        return css`
-          ${({ theme: { colors } }) => `
-
-          .recharts-reference-line line {
-            stroke: ${colors.sectionContent};
-          }
-          circle {
-            :first-child,
-            :last-child {
-              fill: ${colors.sectionContent};
-            }
-          }
-          .recharts-layer path {
-            :last-child {
-              stroke: ${colors.sectionContent};
-            }
-            :first-child {
-              fill: ${colors.sectionContent};
-            }
-          }
-          `}
-        `;
-      case 'yellow':
-      default:
-        return css`
-          ${({ theme: { colors } }) => `
-
-        .recharts-reference-line line {
-          stroke: ${colors.highlighted};
-        }
-        circle {
-          :first-child,
-          :last-child {
-            fill: ${colors.highlighted};
-          }
-        }
-        .recharts-layer path {
-          :last-child {
-            stroke: ${colors.highlighted};
-          }
-          :first-child {
-            fill: ${colors.highlighted};
-          }
-        }
-        }
-        `}
-        `;
-    }
-  }}
+  ${({ variant }) => Variants(variant)}
 `;
 
 export default Wrapper;
