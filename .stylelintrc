@@ -2,7 +2,6 @@
   "extends": [
     "stylelint-config-prettier",
     "stylelint-config-recommended",
-    "stylelint-config-styled-components",
     "stylelint-config-rational-order"
   ],
   "plugins": [
@@ -13,61 +12,28 @@
   "customSyntax": "@stylelint/postcss-css-in-js",
   "defaultSeverity": "error",
   "rules": {
-    "indentation": 2,
     "string-quotes": "single",
     "no-duplicate-selectors": true,
     "color-hex-case": "upper",
     "color-hex-length": "long",
-    "selector-combinator-space-after": "always",
-    "selector-attribute-quotes": "always",
-    "selector-attribute-operator-space-before": "never",
-    "selector-attribute-operator-space-after": "never",
-    "selector-attribute-brackets-space-inside": "never",
-    "declaration-block-trailing-semicolon": "always",
-    "declaration-colon-space-before": "never",
-    "declaration-colon-space-after": "always",
-    "property-no-vendor-prefix": true,
-    "value-no-vendor-prefix": true,
-    "number-leading-zero": "always",
-    "function-url-quotes": "always",
-    "comment-whitespace-inside": "always",
-    "comment-empty-line-before": "always",
-    "at-rule-no-vendor-prefix": true,
-    "at-rule-name-case": "lower",
-    "at-rule-name-space-after": "always",
     "at-rule-semicolon-space-before": "never",
-    "rule-empty-line-before": [
-      "always-multi-line",
-      {
-        "except": [
-          "after-single-line-comment",
-          "first-nested"
-        ]
-      }
-    ],
-    "selector-pseudo-class-parentheses-space-inside": "never",
-    "selector-no-vendor-prefix": true,
-    "media-feature-range-operator-space-before": "always",
-    "media-feature-range-operator-space-after": "always",
     "media-feature-parentheses-space-inside": "always",
-    "media-feature-name-no-vendor-prefix": true,
-    "media-feature-colon-space-before": "never",
-    "media-feature-colon-space-after": "always",
-    "value-list-max-empty-lines": 0,
     "block-no-empty": true,
     "color-no-invalid-hex": true,
     "color-named": "never",
-    "shorthand-property-no-redundant-values": true,
-    "declaration-block-single-line-max-declarations": 1,
     "declaration-block-no-duplicate-properties": true,
     "declaration-no-important": true,
-    "selector-no-qualifying-type": true,
-    "number-no-trailing-zeros": true,
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": [
+          "attribute"
+        ]
+      }
+    ],
     "function-url-no-scheme-relative": true,
     "max-nesting-depth": 3,
     "function-comma-space-after": "always",
-    "function-comma-space-before": "never",
-    "function-parentheses-space-inside": "never",
     "no-descending-specificity": null,
     "scale-unlimited/declaration-strict-value": [
       [
