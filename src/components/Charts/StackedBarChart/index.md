@@ -32,7 +32,7 @@ import StackedBarChart from 'components/Charts/StackedBarChart';
           vd: 500,
         },
       ]}
-      title="Number of VRs + Physicals Trend"
+      title='Number of VRs + Physicals Trend'
     />
   </div>
 </>;

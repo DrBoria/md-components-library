@@ -1,9 +1,0 @@
-{
-  "presets": [
-    ["@babel/preset-env", {"modules": false}], // For compiling modern Javascript down to ES5
-    "@babel/preset-react" // For compiling JSX and other stuff down to Javascript
-  ],
-  "plugins": [
-    "react-hot-loader/babel"
-  ]
-}

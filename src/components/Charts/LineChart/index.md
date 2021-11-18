@@ -50,7 +50,7 @@ import LineChart from 'components/Charts/LineChart';
           amt: 2100,
         },
       ]}
-      title="Number of VRs + Physicals Trend"
+      title='Number of VRs + Physicals Trend'
     />
   </div>
 </>;
