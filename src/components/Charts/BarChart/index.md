@@ -39,8 +39,8 @@ import BarChart from 'components/Charts/BarChart';
         },
       ]}
       hideAxisX={false}
-      variant="green"
-      yAxisTooltipName="yAxis"
+      variant='green'
+      yAxisTooltipName='yAxis'
     />
   </div>
 </>;

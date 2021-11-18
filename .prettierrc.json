@@ -8,5 +8,14 @@
   "jsxSingleQuote": true,
   "bracketSpacing": true,
   "importOrderSeparation": true,
-  "importOrder": ["<THIRD_PARTY_MODULES>", "^components", "^sections", "^utils", "^styles", "(styles.ts)", "^[./]"]
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^components",
+    "^sections",
+    "^utils",
+    "^styles",
+    "^assets",
+    "(styles.ts)",
+    "^[./]"
+  ]
 }

@@ -4,7 +4,7 @@ import { basicFont } from 'components/Typography';
 
 import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 
-import ArrowDownIcon from './arrow_down.svg';
+import ArrowDownIcon from 'assets/images/arrow_down.svg';
 
 export type TOption = { value: any; text: string };
 type TSelectProps = {

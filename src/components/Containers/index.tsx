@@ -35,7 +35,7 @@ const WithoutHeightLimit = (noHeightLimit?: boolean) =>
 export const BasicSection = styled.div<TSectionProps>`
   height: ${({ theme }) => `calc(${theme.screens.mobile.height}px - ${theme.elements.header.height})`};
   max-height: ${({ theme }) => `calc(${theme.screens.desktop.height} - ${theme.elements.header.height})`};
-  padding: ${({ theme }) => theme.offsets.section};
+  padding: ${({ theme: { offsets } }) => offsets.section};
 
   background-color: ${({ theme }) => theme.colors.section};
 

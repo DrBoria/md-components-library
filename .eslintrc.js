@@ -22,7 +22,6 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  ignorePatterns: ['react-app-env.d.ts'],
   settings: {
     'import/resolver': {
       node: {

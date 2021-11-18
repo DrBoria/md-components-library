@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-import { ReactComponent as DefaultSpinnerLoader } from './spinner-loader.svg';
+import { ReactComponent as DefaultSpinnerLoader } from 'assets/images/spinner-loader.svg';
 
 const rotate = keyframes`
   from {

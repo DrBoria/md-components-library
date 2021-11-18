@@ -1,7 +1,8 @@
 {
   "name": "cra-components-library",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,7 +19,10 @@
     "eject": "react-scripts eject",
     "lint:js": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:css": "stylelint \"src/**/*.{ts,tsx}\"",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,13 +41,15 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "commit-msg": "commitlint -E $1",
       "pre-commit": "tsc --noEmit && lint-staged"
     }
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix"
+      "prettier --write",
+      "eslint --fix",
+      "stylelint --fix"
     ],
     "*.{js,html,md,json}": [
       "prettier --write"
@@ -52,8 +58,8 @@
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.2",
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^9.1.2",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@sanv/eslint-config-unicorn-typescript": "^2.0.3",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
@@ -78,10 +84,11 @@
     "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-unicorn": "^38.0.1",
-    "husky": "^4.2.5",
+    "husky": "^7.0.4",
     "is-react-prop": "^1.0.0",
     "lint-staged": "^10.2.13",
-    "prettier": "^2.1.1",
+    "pinst": "^2.1.6",
+    "prettier": "^2.4.1",
     "react-docgen": "^5.3.1",
     "react-docgen-typescript": "^1.22.0",
     "react-styleguidist": "^11.1.6",
