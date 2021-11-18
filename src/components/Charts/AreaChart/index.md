@@ -16,8 +16,8 @@ import AreaChart from 'components/Charts/AreaChart';
         { xAxis: 'Sun', yAxis: 3490 },
       ]}
       hideAxisX={false}
-      variant="green"
-      yAxisTooltipName="yAxis"
+      variant='green'
+      yAxisTooltipName='yAxis'
     />
     <br />
     <h1>With reference line 2000</h1>
@@ -33,8 +33,8 @@ import AreaChart from 'components/Charts/AreaChart';
       ]}
       referenceLine={2000}
       hideAxisX={false}
-      variant="green"
-      yAxisTooltipName="yAxis"
+      variant='green'
+      yAxisTooltipName='yAxis'
     />
   </div>
 </>;
