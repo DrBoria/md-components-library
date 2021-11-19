@@ -9,6 +9,8 @@
     yarn
     yarn start
 
+> If you got some errors with running project try to install latest version of node or run "yarn install --ignore-engines"
+
 ## FOLDERS DESCRIPTION
 
     public/              public files for build
