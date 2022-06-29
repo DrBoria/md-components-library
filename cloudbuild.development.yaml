@@ -1,0 +1,20 @@
+steps:
+  - name: node
+    entrypoint: npm
+    args: ['install']
+
+  - name: node
+    entrypoint: npm
+    args: ['run', 'tsc']
+
+  - name: node
+    entrypoint: npm
+    args: ['run', 'lint:css']
+
+  - name: node
+    entrypoint: npm
+    args: ['run', 'lint:js']
+
+  - name: node
+    entrypoint: npx
+    args: ['styleguidist', 'build']
