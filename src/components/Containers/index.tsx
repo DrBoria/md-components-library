@@ -58,6 +58,11 @@ export const PageContainer = styled.div`
   padding-top: ${({ theme }) => theme.elements.header.height};
 `;
 
+
+
+/* ********* APP SPECIFIC CONTAINERS ********** */
+
+// Got partial width
 export const HeadingContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
   width: 40%;
 

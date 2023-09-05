@@ -3,9 +3,13 @@
 ```jsx
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+
+import { BasicSection } from 'components/Containers';
 import { Form, Submit, FormLabel, Radio, TextCheckbox, Select, Input, SearchInput } from 'components/Form';
 import { SubTitle } from 'components/Typography';
+
 import { dark } from 'styles/themes';
+
 const [value, setValue] = useState();
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -24,33 +28,33 @@ const handleSubmit = (e) => {
 };
 <Form onSubmit={handleSubmit}>
   {/* Name */}
-  <SubTitle>Radio Button</SubTitle>
-  <div>
+  <BasicSection>
+    <SubTitle offsetBottom>Radio Button</SubTitle>
+    <FormLabel htmlFor='first'>Radio Label 1</FormLabel>
     <Radio id='first' name='radio' value='1' />
-    <FormLabel htmlFor='first'>Radio</FormLabel>
+    <FormLabel htmlFor='second'>Radio Label 2</FormLabel>
     <Radio id='second' name='radio' value='2' />
-    <FormLabel htmlFor='second'>Radio</FormLabel>
-  </div>
+  </BasicSection>
 
-  <SubTitle>Text Checkbox Section</SubTitle>
-  <div>
-    <TextCheckbox id='textCheckbox1' name='TextCheckbox1' />
-    <TextCheckbox id='textCheckbox2' name='TextCheckbox2' />
-    <TextCheckbox id='textCheckbox3' name='TextCheckbox3' />
+  <BasicSection>
+    <SubTitle offsetBottom>Text Checkbox Section</SubTitle>
+    <TextCheckbox id='textCheckbox1' name='TextCheckbox1' offsetRight />
+    <TextCheckbox id='textCheckbox2' name='TextCheckbox2' offsetRight />
+    <TextCheckbox id='textCheckbox3' name='TextCheckbox3' offsetRight />
     <TextCheckbox id='textCheckbox4' name='TextCheckbox4' />
-  </div>
+  </BasicSection>
 
-  <SubTitle>Input Section</SubTitle>
-  <div>
+  <BasicSection>
+    <SubTitle offsetBottom>Input Section</SubTitle>
     <FormLabel htmlFor='Input1'>Input1</FormLabel>
     <Input id='Input1' name='Input1' offsetBottom />
 
     <FormLabel htmlFor='Input2'>Input2</FormLabel>
     <Input id='Input2' name='Input2' offsetBottom />
-  </div>
+  </BasicSection>
 
-  <SubTitle>Select Section</SubTitle>
-  <div>
+  <BasicSection>
+    <SubTitle offsetBottom>Select Section</SubTitle>
     <Select
       id='select'
       name='select'
@@ -59,9 +63,11 @@ const handleSubmit = (e) => {
         { value: '2', text: 'text 2' },
       ]}
     />
-  </div>
+  </BasicSection>
   <Submit value='Next Step' />
 
-  <SearchInput value={value} onChangeValue={setValue} />
+  <BasicSection>
+    <SearchInput value={value} onChangeValue={setValue} />
+  </BasicSection>
 </Form>;
 ```

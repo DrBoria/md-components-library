@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "ModalWindow Update",
+  "steps": [
+    {
+      "file": "src/components/Modal/index.tsx",
+      "description": "for the modals inside the application I've used the folliwing solution:\n\nobject with types of modals\n\n  const modalTypes = {\n    [EEntityTypes.Company]:  <AddCompany onSubmit={closeOverlay} />,\n    [EEntityTypes.Event]:    <AddEvent onSubmit={closeOverlay} />,\n    [EEntityTypes.Contact]:  <AddContact onSubmit={closeOverlay} />,\n    [EEntityTypes.Position]: <AddContact onSubmit={closeOverlay} />,\n  };\n\nand instead of the {childrens}:\n\n{uiStore.modal && modalTypes[uiStore.modal]}\n\nThis allows to set the uiStore.modal type that will automatically show the proper modal window.",
+      "line": 12
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import { Fragment } from 'react';
 import TableContainer from 'components/Table';
 import { TextDisplayCell, BoldTextDisplayCell, StatusCell, NavigationCell } from 'components/Table/TableCels';
 import WithPagination from 'utils/withPagination';
-const ordersRows = [
+const headerCols = [
   { text: 'Order Id' },
   { text: 'Client Name' },
   { text: 'Service' },
@@ -608,7 +608,7 @@ const content = [
 ];
 <TableContainer
   colsTemplate='1fr 1fr 1fr 1fr 1fr'
-  headerCols={ordersRows}
+  headerCols={headerCols}
   pagination={{ current: 2, totalPages: 10, changePage: console.log }}
   rowsPerPage={{
     options: [

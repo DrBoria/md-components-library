@@ -51,27 +51,29 @@ const TableContainer = ({ children, headerCols, colsTemplate, pagination, rowsPe
         {children}
       </Grid>
 
-      <PaginationContainer>
-        {/* Pagination with arrows */}
-        {pagination && (
-          <Pagination
-            pagesCount={pagination.totalPages}
-            currentPage={pagination.current}
-            onChangePage={handleChangePage}
-          />
-        )}
+      {(pagination || rowsPerPage) && (
+        <PaginationContainer>
+          {/* Pagination with arrows */}
+          {pagination && (
+            <Pagination
+              pagesCount={pagination.totalPages}
+              currentPage={pagination.current}
+              onChangePage={handleChangePage}
+            />
+          )}
 
-        {/* Dropdawn for selction rows per page */}
-        {rowsPerPage && (
-          <Select
-            name='rowsPerPage'
-            id='rowsPerPage'
-            value={rowsPerPage.options[0]}
-            options={rowsPerPage.options}
-            onChange={handleChangeRowsPerPage}
-          />
-        )}
-      </PaginationContainer>
+          {/* Dropdawn for selction rows per page */}
+          {rowsPerPage && (
+            <Select
+              name='rowsPerPage'
+              id='rowsPerPage'
+              value={rowsPerPage.options[0]}
+              options={rowsPerPage.options}
+              onChange={handleChangeRowsPerPage}
+            />
+          )}
+        </PaginationContainer>
+      )}
     </div>
   );
 };

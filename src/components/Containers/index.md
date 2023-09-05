@@ -2,22 +2,26 @@
 
 ```jsx
 import { ThemeProvider } from 'styled-components';
-import { dark } from 'styles/themes';
 
 import { PageContainer, BasicSection, HeadingContainer } from 'components/Containers';
 import { PlainText, SectionTitle } from 'components/Typography';
 
-<PageContainer>
-  <BasicSection>
-    <SectionTitle>Light theme</SectionTitle>
-    <PlainText>Page container got offset from top for header</PlainText>
-  </BasicSection>
+import { dark } from 'styles/themes';
 
+<PageContainer>
+  Page Container. Got offset equal to header height
+  <BasicSection>
+    Basic Section
+    <SectionTitle>Section Title</SectionTitle>
+    <PlainText>Plain text. Page container got offset from top for header</PlainText>
+  </BasicSection>
   <ThemeProvider theme={{ colors: dark }}>
     <BasicSection>
+      <PlainText>Basic Section Dark</PlainText>
       <HeadingContainer>
-        <SectionTitle offsetBottom>Dark theme</SectionTitle>
-        <PlainText>Basic section + heading container usage</PlainText>
+        <PlainText>Heading Container Dark</PlainText>
+        <SectionTitle offsetBottom>Section Title Dark</SectionTitle>
+        <PlainText>Plain Text</PlainText>
       </HeadingContainer>
     </BasicSection>
   </ThemeProvider>

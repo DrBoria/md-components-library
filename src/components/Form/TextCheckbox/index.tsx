@@ -13,14 +13,15 @@ type TTextCheckboxProps = {
 const CheckboxContainer = styled.div`
   display: inline-block;
 
+  margin-right: ${withOffsetsRight};
+  margin-bottom: ${withOffsetBottom};
+  
   cursor: pointer;
 `;
 
 const CheckboxInput = styled.input<TWithBasicElementOffsets & TFullWidth>`
   display: none;
   width: ${({ fullWidth }) => fullWidth && '100%'};
-  margin-right: ${withOffsetsRight};
-  margin-bottom: ${withOffsetBottom};
 
   &:checked + label {
     color: ${({ theme }) => theme.colors.highlightedText};
