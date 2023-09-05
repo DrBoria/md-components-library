@@ -1,5 +1,3 @@
-### Containers:
-
 ```jsx
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -7,9 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { BasicSection } from 'components/Containers';
 import { Form, Submit, FormLabel, Radio, TextCheckbox, Select, Input, SearchInput } from 'components/Form';
 import { SubTitle } from 'components/Typography';
-
 import { dark } from 'styles/themes';
-
 const [value, setValue] = useState();
 const handleSubmit = (e) => {
   e.preventDefault();

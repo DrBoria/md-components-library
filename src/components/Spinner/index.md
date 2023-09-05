@@ -1,11 +1,7 @@
-### Spinner:
-
 ```jsx
 import { ThemeProvider } from 'styled-components';
-import { dark } from 'styles/themes';
-
 import Spinner from 'components/Spinner';
-
+import { dark } from 'styles/themes';
 <>
   Light Theme
   <div style={{ width: '100%', padding: '10px' }}>

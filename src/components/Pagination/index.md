@@ -1,11 +1,7 @@
-### Pagination:
-
 ```jsx
 import { ThemeProvider } from 'styled-components';
-import { dark } from 'styles/themes';
-
 import Pagination from 'components/Pagination';
-
+import { dark } from 'styles/themes';
 <>
   Light Theme
   <div style={{ width: '100%', padding: '10px' }}>

@@ -71,15 +71,6 @@ module.exports = {
         },
       },
     ],
-    '@typescript-eslint/naming-convention': [
-      'error',
-      { selector: 'variableLike', format: ['camelCase', 'UPPER_CASE'] },
-      { selector: 'variable', modifiers: ['destructured'], format: ['camelCase'] },
-      { selector: 'variable', modifiers: ['global'], format: ['camelCase', 'PascalCase'] },
-      { selector: 'variable', modifiers: ['global'], types: ['function'], format: ['PascalCase'] },
-      { selector: 'function', modifiers: ['global'], format: ['PascalCase'] },
-      { selector: 'typeLike', prefix: ['T'], format: ['PascalCase'] },
-    ],
 
     // Spaces & Delimeters
     '@typescript-eslint/semi': ['error', 'always'],
@@ -111,5 +102,6 @@ module.exports = {
     'no-unsafe-finally': 'error',
     complexity: ['error', 6],
     'unicorn/no-new-array': 0,
+    'no-plusplus': 0,
   },
 };

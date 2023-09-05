@@ -1,5 +1,3 @@
-### Button:
-
 ```jsx
 import { Fragment } from 'react';
 

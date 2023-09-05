@@ -1,5 +1,3 @@
-### Avatar:
-
 ```jsx
 import Avatar from 'components/Avatar';
 

@@ -2,11 +2,9 @@
 
 ```jsx
 import { ThemeProvider } from 'styled-components';
-import { dark } from 'styles/themes';
-
 import { PageContainer, BasicSection } from 'components/Containers';
 import { PageTitle, Highlighted, SubTitle, SectionTitle, PlainText, Label } from 'components/Typography';
-
+import { dark } from 'styles/themes';
 <PageContainer>
   <BasicSection>
     <PageTitle>

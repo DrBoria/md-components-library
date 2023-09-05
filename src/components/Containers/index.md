@@ -1,5 +1,3 @@
-### Containers:
-
 ```jsx
 import { ThemeProvider } from 'styled-components';
 

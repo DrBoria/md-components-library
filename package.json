@@ -4,6 +4,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.29.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^4.3.1",
