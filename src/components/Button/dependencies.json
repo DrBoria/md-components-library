@@ -1,0 +1,9 @@
+{
+   "packages": [
+    "@keystone-ui/toast",
+    "@keystone-ui/button",
+    "@keystone-ui/icons",
+    "styled-components",
+    "react"
+   ]
+}

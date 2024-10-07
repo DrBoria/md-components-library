@@ -1,0 +1,7 @@
+{
+   "packages": [
+    "@keystone-ui/icons",
+    "styled-components",
+    "react"
+   ]
+}
