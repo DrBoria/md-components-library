@@ -1,51 +1,70 @@
 import React, { useState } from "react";
-import styled, { TDefaultTheme } from "styled-components";
-import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+import styled from "styled-components";
 
-type Tab = {
-  title: string | React.ReactNode;
-};
+interface TabProps {
+  label: string;
+  content: React.ReactNode;
+}
 
-const TabList = styled.div<TWithBasicElementOffsets & TFullWidth>`
-  display: flex;
-  margin-right: ${withOffsetsRight};
-  margin-bottom: ${withOffsetBottom};
+interface TabsProps {
+  tabs: TabProps[];
+  onTabChange?: (tabNumber: number) => void;
+}
+
+const TabsContainer = styled.div`
+  width: 100%;
+  margin: 0 auto;
 `;
 
-const TabItem = styled.div<{ active: boolean; theme: TDefaultTheme }>`
-  padding: ${({ theme }: {theme: TDefaultTheme}) => theme.offsets.elementContent};
-
-  background-color: ${({ active, theme }) => (active ?  theme.colors.highlighted : theme.colors.section)};
-  color: ${({ active, theme }) => (active ?  theme.colors.highlightedText : theme.colors.sectionContent)};
+const TabList = styled.div`
+  display: flex;
   cursor: pointer;
 `;
 
-type TTabProps = {
-  tabs: Tab[]; onActiveTabSet: (index: number) => void;
-}& TWithBasicElementOffsets &
-TFullWidth;
+const Tab = styled.div<{ active: boolean }>`
+  padding: 10px 20px;
+  background-color: ${({ active }) => (active ? "#eff6ff" : "transparent")};
+  color: ${({ active }) => (active ? "#2563eb" : "#6b7280")};
+  border: 1px solid #ccc;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: none;
+  margin-right: 5px;
+  &:hover {
+    background-color: ${({ active }) => (active ? "#eff6ff" : "#ccc")};
+    background-color: ${({ active }) => (active ? "#eff6ff" : "#ccc")};
+  }
+`;
 
-const Tabs = ({ tabs, onActiveTabSet, ...props }: TTabProps) => {
-  const [activeTab, setActiveTab] = useState(0);
+const TabContent = styled.div`
+  padding: 20px;
+  border: 1px solid #ccc;
+`;
 
-  function handleTabClick(tabIndex: number) {
-        setActiveTab(tabIndex);
-        onActiveTabSet(tabIndex);
-    }
+const Tabs: React.FC<TabsProps> = ({ tabs, onTabChange }) => {
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+    onTabChange && onTabChange(index);
+  };
 
   return (
-    <TabList {...props}>
-      {tabs.map((tab, index) => (
-        <TabItem
-          key={index}
-          active={activeTab === index}
-          onClick={() => handleTabClick(index)}
-        >
-          {tab.title}
-        </TabItem>
+    <TabsContainer>
+      <TabList>
+        {tabs.map((tab, index) => (
+          <Tab
+            key={index}
+            active={index === activeTab}
+            onClick={() => handleTabClick(index)}
+          >
+            {tab.label}
+          </Tab>
         ))}
-    </TabList>
+      </TabList>
+      <TabContent>{tabs[activeTab].content}</TabContent>
+    </TabsContainer>
   );
 };
 
-export default Tabs;
+export { Tabs };
