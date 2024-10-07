@@ -4,8 +4,8 @@
 
 ## INSTALLATION and START
 
-    git clone https://github.com/DrBoria/cra-components-library.git
-    cd ./cra-components-library
+    git clone https://github.com/DrBoria/md-components-library.git
+    cd ./md-components-library
     yarn
     yarn start
 
