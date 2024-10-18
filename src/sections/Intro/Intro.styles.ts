@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { BasicSection } from 'components/Containers';
-import { PageTitle } from 'components/Typography';
+import { BasicSection } from '../../../default/Containers';
+import { PageTitle } from '../../../default/Typography';
 
 import { devices } from 'styles/baseTheme';
 

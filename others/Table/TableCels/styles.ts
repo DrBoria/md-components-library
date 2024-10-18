@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PlainText } from 'components/Typography';
+import { PlainText } from '../../../default/Typography';
 
 type TStyledCellProps = {
   align?: string;

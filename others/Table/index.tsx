@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 import { Select, TOption } from 'components/Form';
-import Pagination from 'components/Pagination';
-import { SubTitle } from 'components/Typography';
+import Pagination from '../Pagination';
+import { SubTitle } from '../../default/Typography';
 
 import { StyledHeaderCell } from './TableCels/styles';
 import { Grid, PaginationContainer } from './styles';

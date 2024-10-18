@@ -1,7 +1,7 @@
 import { PieChart as DefaultPieChart, Cell, Pie } from 'recharts';
 
-import { GraphicsContainer, LegendContainer, LegendRowContainer } from 'components/Charts/styles';
-import { PlainText } from 'components/Typography';
+import { GraphicsContainer, LegendContainer, LegendRowContainer } from '../styles';
+import { PlainText } from '../../../default/Typography';
 
 import { NameContainer, ColoredDot } from './styles';
 import { TProps } from './types';

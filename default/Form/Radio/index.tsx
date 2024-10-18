@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { basicFont } from 'components/Typography';
+import { basicFont } from '../../Typography';
 
 import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
 

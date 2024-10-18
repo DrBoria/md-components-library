@@ -1,5 +1,6 @@
 const path = require('path');
 const isReactProp = require('is-react-prop').default;
+const { ProvidePlugin, DefinePlugin } = require("webpack");
 
 const NO_FILTER_PROPS = ['width', 'height', 'margin', 'padding', 'color'];
 
@@ -19,42 +20,53 @@ module.exports = {
       },
     },
   },
-
-  // Fix for displaying only component props
-  resolver: require('react-docgen').resolver.findAllComponentDefinitions,
-  propsParser: require('react-docgen-typescript').withDefaultConfig({
-    propFilter: { skipPropsWithoutDoc: true },
-  }).parse,
-  updateDocs(docs, file) {
-    return {
-      ...docs,
-      props: docs.props.filter((p) => {
-        const isDefaultProp = isReactProp(p.name);
-        return (
-          // should be with description
-          p.description &&
-          // not default prop
-          (!isDefaultProp ||
-            // if default prop
-            (isDefaultProp &&
-              // should be with @override tag
-              (p.tags.hasOwnProperty('override') ||
-                // or should be listed at NO_FILTER_PROPS
-                NO_FILTER_PROPS.includes(p.name))))
-        );
+  webpackConfig: {
+    module: {
+      rules: [
+        {
+          test: /\.(js|ts)x?$/,
+          exclude: /node_modules/,
+          loader: "babel-loader",
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader", "postcss-loader"],
+        },
+        {
+          test: /\.(jpg|jpeg|png|gif|mp3)$/,
+          use: ["url-loader"],
+        },
+        {
+          test: /\.svg$/i,
+          issuer: /\.[jt]sx?$/,
+          use: ["@svgr/webpack", "url-loader"],
+        },
+      ],
+    },
+    plugins: [
+      new ProvidePlugin({
+        React: "react", // automatically import react where needed
       }),
-    };
+      new DefinePlugin({
+        process: { env: {} },
+      }),
+    ],
+    resolve: {
+      fallback: {
+        crypto: false,
+      },
+      extensions: [".js", "jsx", ".ts", ".tsx", ".json"],
+    },
   },
-
   // Sections that is displayed in styleguidelist
   sections: [
     {
-      name: 'Components',
-      components: 'src/components/*/*.tsx',
+      name: 'Default Components',
+      components: 'default/*/*.tsx',
     },
     {
-      name: 'Sections',
-      components: 'src/sections/**/*.tsx',
+      name: 'Other Components',
+      components: 'others/*/*.tsx',
     },
   ],
 

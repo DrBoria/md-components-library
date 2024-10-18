@@ -1,7 +1,7 @@
 import { TDefaultTheme, ThemeProvider } from 'styled-components';
 
 import Button from 'components/Button';
-import { Highlighted } from 'components/Typography';
+import { Highlighted } from '../../../default/Typography';
 
 import { dark } from 'styles/themes';
 

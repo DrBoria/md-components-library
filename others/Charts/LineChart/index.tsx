@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line } from 'recharts';
 
-import YAxisMinMax from 'components/Charts/Helpers';
-import { SubTitle } from 'components/Typography';
+import YAxisMinMax from '../Helpers';
+import { SubTitle } from '../../../default/Typography';
 
 import { Container } from '../Helpers/styles';
 import { Wrapper } from './styles';

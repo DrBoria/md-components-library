@@ -1,7 +1,7 @@
 import { ResponsiveContainer } from 'recharts';
 import styled, { css } from 'styled-components';
 
-import { basicFont } from 'components/Typography';
+import { basicFont } from '../../../default/Typography';
 
 import { TComponentProps, TProps } from './types';
 

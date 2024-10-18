@@ -1,5 +1,5 @@
-import Avatar from 'components/Avatar';
-import { PlainText } from 'components/Typography';
+import Avatar from '../../Avatar';
+import { PlainText } from '../../../default/Typography';
 
 import { OneLineCell } from './styles';
 

@@ -1,4 +1,4 @@
-import { PlainText } from 'components/Typography';
+import { PlainText } from '../../../default/Typography';
 
 import { StyledTextCell } from './styles';
 
