@@ -1,92 +1,199 @@
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from "react";
+import { ChevronDownIcon, ChevronUpIcon, XIcon } from "@keystone-ui/icons";
+import styled from "styled-components";
 
-import { basicFont } from 'components/Typography';
+import { IOption } from "../../../../types";
 
-import { withOffsetBottom, withOffsetsRight, TWithBasicElementOffsets, TFullWidth } from 'styles/helpers';
+interface SelectProps {
+  options: IOption[];
+  value: IOption | null;
+  onChange: (option: IOption | null) => void;
+  isClearable?: boolean;
+  placeholder?: string;
+}
 
-import ArrowDownIcon from 'assets/images/arrow_down.svg';
+// Styled components
+const Container = styled.div`
+  position: relative;
+`;
 
-export type TOption = { value: any; text: string };
-type TSelectProps = {
-  name: string;
-  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  id: string;
-  value: any;
-  defaultText?: string;
-  options: TOption[];
-} & TWithBasicElementOffsets &
-  TFullWidth;
+const SelectedValueWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  color: #374151;
+  background-color: #f9fafb;
+  cursor: pointer;
+`;
 
-const SelectInput = styled.select`
-  display: block;
+const Dropdown = styled.ul`
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
-  height: ${({ theme }) => theme.elements.form.height};
-  padding: ${({ theme }) => theme.offsets.elementContent};
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  border-radius: 8px;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+`;
 
-  color: ${({ theme }) => theme.colors.sectionContent};
-  font: ${basicFont};
-
-  background: ${({ theme }) => theme.colors.overlay};
-  border: none;
-  border-radius: ${({ theme }) => theme.border.radius};
-  outline: 0;
-  box-shadow: none;
+const DropdownItem = styled.li<{ highlighted: boolean }>`
+  padding: 10px 15px;
+  background-color: ${({ highlighted }) => (highlighted ? "#007bff" : "#fff")};
+  color: ${({ highlighted }) => (highlighted ? "#fff" : "#000")};
+  font-size: 14px;
   cursor: pointer;
 
-  appearance: none;
-
-  &:invalid {
-    color: ${({ theme }) => theme.colors.disabled};
+  &:hover {
+    background-color: #007bff;
+    color: #fff;
   }
 `;
 
-const Option = styled.option`
-  color: ${({ theme }) => theme.colors.sectionContent};
-
-  background: ${({ theme }) => theme.colors.overlay};
-
-  &:disabled {
-    color: ${({ theme }) => theme.colors.disabled};
-  }
-`;
-
-const SelectContainer = styled.div<TWithBasicElementOffsets & TFullWidth>`
-  position: relative;
-
+const IconsContainer = styled.div`
+  color: #b1b5b9;
   display: flex;
-  width: ${({ fullWidth }) => fullWidth && '100%'};
-  height: ${({ theme }) => theme.elements.form.height};
-  margin-right: ${withOffsetsRight};
-  margin-bottom: ${withOffsetBottom};
-  overflow: hidden;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
 `;
 
-const Label = styled.label`
-  position: absolute;
-  top: ${({ theme }) => theme.offsets.elementContent};
-  right: ${({ theme }) => theme.offsets.elementContent};
-
-  width: ${({ theme }) => `calc(${theme.elements.form.height} - ${theme.offsets.elementContent} * 2)`};
-  height: ${({ theme }) => `calc(${theme.elements.form.height} - ${theme.offsets.elementContent} * 2)`};
+const NoOptions = styled.li`
+  padding: 10px;
+  color: #999;
 `;
 
-const Select = ({ name, id, options, value = '0', defaultText = 'Choose goal', onChange }: TSelectProps) => (
-  <SelectContainer>
-    <SelectInput id={id} name={name} defaultValue={value} required onChange={onChange}>
-      <Option disabled value='0'>
-        {defaultText}
-      </Option>
-      {options.map((option: TOption, index: number) => (
-        <Option key={index} value={option.value}>
-          {option.text}
-        </Option>
-      ))}
-    </SelectInput>
+const ClearButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 16px;
+`;
 
-    <Label htmlFor={id}>
-      <img src={ArrowDownIcon} alt='' />
-    </Label>
-  </SelectContainer>
-);
+const Separator = styled.div`
+  width: 1px;
+  background-color: hsl(0, 0%, 80%);
+  margin-bottom: 4px;
+  margin-top: 4px;
+  box-sizing: border-box;
+`;
+
+const Placeholder = styled.span`
+  color: #b4b8bc;
+`;
+const Select: React.FC<SelectProps> = ({
+  options,
+  value,
+  onChange,
+  isClearable = false,
+  placeholder = "Select an option",
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleToggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelectOption = (option: IOption) => {
+    onChange(option);
+    setIsOpen(false);
+  };
+
+  // Handle key navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case "ArrowDown":
+        setHighlightedIndex((prev) => Math.min(prev + 1, options.length - 1));
+        break;
+      case "ArrowUp":
+        setHighlightedIndex((prev) => Math.max(prev - 1, 0));
+        break;
+      case "Enter":
+        if (isOpen && options[highlightedIndex]) {
+          handleSelectOption(options[highlightedIndex]);
+        }
+        break;
+      case "Escape":
+        setIsOpen(false);
+        break;
+      default:
+        break;
+    }
+  };
+
+  // Clear the selected option
+  const handleClear = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent click from bubbling to open dropdown
+    onChange(null);
+    setIsOpen(false);
+  };
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <Container ref={containerRef}>
+      <SelectedValueWrapper
+        onClick={handleToggleDropdown}
+        onKeyDown={handleKeyDown} // Now handling keydown events
+        tabIndex={0} // Make it focusable for key events
+      >
+        {value ? value.label : <Placeholder>{placeholder}</Placeholder>}
+        <IconsContainer>
+          {isClearable && value && (
+            <ClearButton onClick={handleClear}>
+              <XIcon />
+            </ClearButton>
+          )}
+          <Separator />
+          <span>{isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}</span>
+        </IconsContainer>
+      </SelectedValueWrapper>
+      {isOpen && (
+        <Dropdown>
+          {options?.length ? (
+            options.map((option, index) => (
+              <DropdownItem
+                key={option.value}
+                highlighted={highlightedIndex === index}
+                onClick={() => handleSelectOption(option)}
+                onMouseEnter={() => setHighlightedIndex(index)}
+              >
+                {option.label}
+              </DropdownItem>
+            ))
+          ) : (
+            <NoOptions>No options found</NoOptions>
+          )}
+        </Dropdown>
+      )}
+    </Container>
+  );
+};
 
 export { Select };

@@ -1,6 +1,6 @@
 {
-  "name": "cra-components-library",
-  "version": "0.1.0",
+  "name": "md-components-library",
+  "version": "0.3.0",
   "private": false,
   "license": "MIT",
   "dependencies": {

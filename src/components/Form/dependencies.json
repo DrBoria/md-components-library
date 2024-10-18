@@ -1,0 +1,9 @@
+{
+   "packages": [
+    "@keystone-ui/fields",
+    "styled-components",
+    "react",
+    "@keystone-ui/icons",
+    "@keystone-ui/fields"
+   ]
+}
